@@ -17,7 +17,6 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         let urlpath = Bundle.main.path(forResource: "static/index", ofType: "html")
-        let requesturl = URL(string: "file://" + urlpath!)
         if let urlpath = urlpath, let requesturl = URL(string: "file://" + urlpath) {
             webView.loadFileURL(requesturl, allowingReadAccessTo: requesturl)
         } else {
