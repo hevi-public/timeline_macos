@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Timeline/ViewController.swift"
-            timestampString = "573820551.913813"
+            timestampString = "573858273.7648489"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "17"
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Timeline/webview/MyWebView.swift"
-            timestampString = "573820551.913904"
+            timestampString = "573858273.765118"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "initGraph()"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "initGraph(timelineItems:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Timeline/webview/MyWebView.swift"
-            timestampString = "573820551.914367"
+            timestampString = "573858273.765826"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "userContentController(_:didReceive:)"
             landmarkType = "7">
             <Locations>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Timeline/webview/MyWebView.swift"
-            timestampString = "573820551.91484"
+            timestampString = "573858273.766537"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "userContentController(_:didReceive:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,13 +106,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Timeline/webview/MyWebView.swift"
-            timestampString = "573820551.915415"
+            timestampString = "573858273.767068"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "initialize()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Timeline/webview/MyWebView.swift"
+            timestampString = "573858273.767602"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "initGraph(timelineItems:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Timeline.MyWebView.initGraph(timelineItems: Swift.Array&lt;Timeline.TimelineItem&gt;) -&gt; ()"
+                  moduleName = "Timeline"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hevi/Projects/Timeline/Timeline/webview/MyWebView.swift"
+                  timestampString = "573857025.430791"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "1128">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Timeline.MyWebView.initGraph(timelineItems: Swift.Array&lt;Timeline.TimelineItem&gt;) -&gt; ()"
+                  moduleName = "Timeline"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hevi/Projects/Timeline/Timeline/webview/MyWebView.swift"
+                  timestampString = "573857025.436365"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "35">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
