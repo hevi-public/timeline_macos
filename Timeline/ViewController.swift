@@ -7,13 +7,22 @@
 //
 
 import Cocoa
+import WebKit
 
 class ViewController: NSViewController {
-
+    
+    @IBOutlet weak var webView: WKWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let urlpath = Bundle.main.path(forResource: "static/index", ofType: "html")
+        let requesturl = URL(string: "file://" + urlpath!)
+        if let urlpath = urlpath, let requesturl = URL(string: "file://" + urlpath) {
+            webView.loadFileURL(requesturl, allowingReadAccessTo: requesturl)
+        } else {
+            print("Problem while loading index.html")
+        }
     }
 
     override var representedObject: Any? {

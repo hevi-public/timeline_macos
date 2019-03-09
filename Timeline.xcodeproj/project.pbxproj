@@ -14,6 +14,8 @@
 		D71063D82233165C005A38F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D71063D62233165C005A38F1 /* Main.storyboard */; };
 		D71063E42233165C005A38F1 /* TimelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71063E32233165C005A38F1 /* TimelineTests.swift */; };
 		D71063EF2233165C005A38F1 /* TimelineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71063EE2233165C005A38F1 /* TimelineUITests.swift */; };
+		D710656A22331D6B005A38F1 /* MyWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D710656922331D6B005A38F1 /* MyWebView.swift */; };
+		D71066E22233B5B1005A38F1 /* static in Resources */ = {isa = PBXBuildFile; fileRef = D71066E12233B5B1005A38F1 /* static */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		D71063EA2233165C005A38F1 /* TimelineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimelineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D71063EE2233165C005A38F1 /* TimelineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineUITests.swift; sourceTree = "<group>"; };
 		D71063F02233165C005A38F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D710656922331D6B005A38F1 /* MyWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWebView.swift; sourceTree = "<group>"; };
+		D71066E12233B5B1005A38F1 /* static */ = {isa = PBXFileReference; lastKnownFileType = folder; path = static; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 		D71063CC2233165A005A38F1 /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
+				D71066E12233B5B1005A38F1 /* static */,
+				D7106568223318D5005A38F1 /* webview */,
 				D71063CD2233165A005A38F1 /* AppDelegate.swift */,
 				D71063CF2233165A005A38F1 /* ViewController.swift */,
 				D71063D42233165C005A38F1 /* Assets.xcassets */,
@@ -125,6 +131,14 @@
 				D71063F02233165C005A38F1 /* Info.plist */,
 			);
 			path = TimelineUITests;
+			sourceTree = "<group>";
+		};
+		D7106568223318D5005A38F1 /* webview */ = {
+			isa = PBXGroup;
+			children = (
+				D710656922331D6B005A38F1 /* MyWebView.swift */,
+			);
+			path = webview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +209,11 @@
 				TargetAttributes = {
 					D71063C92233165A005A38F1 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					D71063DE2233165C005A38F1 = {
 						CreatedOnToolsVersion = 10.1;
@@ -232,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D71063D52233165C005A38F1 /* Assets.xcassets in Resources */,
+				D71066E22233B5B1005A38F1 /* static in Resources */,
 				D71063D82233165C005A38F1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D71063D02233165A005A38F1 /* ViewController.swift in Sources */,
+				D710656A22331D6B005A38F1 /* MyWebView.swift in Sources */,
 				D71063D32233165A005A38F1 /* Timeline.xcdatamodeld in Sources */,
 				D71063CE2233165A005A38F1 /* AppDelegate.swift in Sources */,
 			);
@@ -425,7 +446,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Timeline/Timeline.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 7VSX9U5N94;
@@ -444,7 +464,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Timeline/Timeline.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 7VSX9U5N94;
