@@ -718,7 +718,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="480" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
-                                            <wkWebView wantsLayer="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nwM-ZB-YXE">
+                                            <wkWebView wantsLayer="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nwM-ZB-YXE" customClass="MyWebView" customModule="Timeline" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="480" height="127"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <wkWebViewConfiguration key="configuration">
