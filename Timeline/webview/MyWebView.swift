@@ -34,12 +34,12 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         case "webviewreadyHandler":
             
             var timelineData = [TimelineItem]()
-            timelineData.append(ExampleDataItem(id: 1, content: "item 1", start: "2019-02-20", end: "2019-02-25"))
-            timelineData.append(ExampleDataItem(id: 2, content: "item 2", start: "2019-02-14", end: "2019-02-18"))
-            timelineData.append(ExampleDataItem(id: 3, content: "item 3", start: "2019-02-15", end: "2019-02-23"))
-            timelineData.append(ExampleDataItem(id: 4, content: "item 4", start: "2019-02-22", end: "2019-02-28"))
-            timelineData.append(ExampleDataItem(id: 5, content: "item 5", start: "2019-02-12", end: "2019-02-14"))
-            timelineData.append(ExampleDataItem(id: 6, content: "item 6", start: "2019-02-17", end: "2019-02-20"))
+            timelineData.append(ExampleDataItem(id: 1, content: "TICKET-431", start: "2019-02-20", end: "2019-02-25"))
+            timelineData.append(ExampleDataItem(id: 2, content: "TICKET-422", start: "2019-02-14", end: "2019-02-18"))
+            timelineData.append(ExampleDataItem(id: 3, content: "TICKET-434", start: "2019-02-15", end: "2019-02-23"))
+            timelineData.append(ExampleDataItem(id: 4, content: "TICKET-426", start: "2019-02-22", end: "2019-02-28"))
+            timelineData.append(ExampleDataItem(id: 5, content: "TICKET-415", start: "2019-02-12", end: "2019-02-14"))
+            timelineData.append(ExampleDataItem(id: 6, content: "TICKET-457", start: "2019-02-17", end: "2019-02-20"))
             
           
             self.initGraph(timelineItems: timelineData)
