@@ -12,6 +12,7 @@ import WebKit
 class MyWebView: WKWebView, WKScriptMessageHandler {
     
     var ticketNumberLabel: NSTextFieldCell?
+    var descriptionTextView: NSTextView?
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -19,7 +20,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         // Drawing code here.
     }
 
-    public func initialize(ticketNameLabel: NSTextFieldCell) {
+    public func initialize(ticketNameLabel: NSTextFieldCell, descriptionTextView: NSTextView) {
         let userContentController = self.configuration.userContentController as WKUserContentController
         userContentController.add(self, name: "webviewreadyHandler")
         userContentController.add(self, name: "selectHandler")
@@ -32,6 +33,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         }
         
         self.ticketNumberLabel = ticketNameLabel
+        self.descriptionTextView = descriptionTextView
     }
     
     func userContentController(_ userContentConvarller: WKUserContentController, didReceive message: WKScriptMessage) {
@@ -72,6 +74,10 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                 
                 _ = Ticket(id: id, ticketNumber: ticketNumber, description: description, start: start, end: end)
                 ticketNumberLabel?.stringValue = ticketNumber
+                if let descriptionTextView = descriptionTextView {
+                    self.clearText(textView: descriptionTextView)
+                    descriptionTextView.insertText(description)
+                }
             }
             break
         default:
@@ -98,6 +104,11 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         } catch {
             print("Problem")
         }
+    }
+    
+    private func clearText(textView: NSTextView) {
+        textView.selectAll(nil)
+        textView.deleteBackward(nil)
     }
 }
 
