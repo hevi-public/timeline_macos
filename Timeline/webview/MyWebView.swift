@@ -39,31 +39,39 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         case "webviewreadyHandler":
             
             var timelineData = [TimelineItem]()
-            timelineData.append(Ticket(id: 1, content: "TICKET-431", ticketNumber: "TICKET-431", description: "", start: "2019-02-20", end: "2019-02-25"))
-            timelineData.append(Ticket(id: 2, content: "TICKET-422", ticketNumber: "TICKET-422", description: "", start: "2019-02-14", end: "2019-02-18"))
-            timelineData.append(Ticket(id: 3, content: "TICKET-434", ticketNumber: "TICKET-434", description: "", start: "2019-02-15", end: "2019-02-23"))
-            timelineData.append(Ticket(id: 4, content: "TICKET-426", ticketNumber: "TICKET-426", description: "", start: "2019-02-22", end: "2019-02-28"))
-            timelineData.append(Ticket(id: 5, content: "TICKET-415", ticketNumber: "TICKET-415", description: "", start: "2019-02-12", end: "2019-02-14"))
-            timelineData.append(Ticket(id: 6, content: "TICKET-457", ticketNumber: "TICKET-457", description: "", start: "2019-02-17", end: "2019-02-20"))
             
-          
-            self.initGraph(timelineItems: timelineData)
+            let urlString = "http://localhost:8080/ticket"
+            guard let url = URL(string: urlString) else { return }
+            
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if error != nil {
+                    print(error!.localizedDescription)
+                }
+                
+                guard let data = data else { return }
+                do {
+                    let articlesData = try JSONDecoder().decode([Ticket].self, from: data)
+                    DispatchQueue.main.async {
+                        timelineData.append(contentsOf: articlesData)
+                        self.initGraph(timelineItems: articlesData)
+                    }
+                } catch let jsonError {
+                    print(jsonError)
+                }
+            }.resume()
             break
         case "selectHandler":
-            //let msgbody = message.body as! String
             let body = message.body as! [String : Any]
             
             if let id = body["id"] as? Int,
-                let content = body["content"] as? String,
                 let ticketNumber = body["ticketNumber"] as? String,
                 let description = body["description"] as? String,
                 let start = body["start"] as? String,
                 let end = body["end"] as? String
             {
                 
-                let ticket = Ticket(id: id, content: content, ticketNumber: ticketNumber, description: description, start: start, end: end)
+                _ = Ticket(id: id, ticketNumber: ticketNumber, description: description, start: start, end: end)
                 ticketNumberLabel?.stringValue = ticketNumber
-                //print(ticket)
             }
             break
         default:
@@ -95,7 +103,6 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
 
 protocol TimelineItem {
     var id: Int { get set }
-    var content: String { get set }
     var ticketNumber: String { get set }
     var description: String { get set }
     var start: String { get set }
@@ -104,12 +111,11 @@ protocol TimelineItem {
     func asDict() -> [String : Any]
 }
 
-struct Ticket: TimelineItem {
+struct Ticket: TimelineItem, Decodable {
     
     typealias StringToAnyDict = [String : Any]
     
     var id: Int
-    var content: String
     var ticketNumber: String
     var description: String
     var start: String
@@ -117,7 +123,7 @@ struct Ticket: TimelineItem {
     
     public func asDict() -> [String : Any] {
         return ["id": self.id,
-                "content": self.content,
+                "content": self.ticketNumber,
                 "ticketNumber": self.ticketNumber,
                 "description": self.description,
                 "start": self.start,
