@@ -11,13 +11,15 @@ import WebKit
 
 class MyWebView: WKWebView, WKScriptMessageHandler {
     
+    var ticketNumberLabel: NSTextFieldCell?
+    
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
         // Drawing code here.
     }
 
-    public func initialize() {
+    public func initialize(ticketNameLabel: NSTextFieldCell) {
         let userContentController = self.configuration.userContentController as WKUserContentController
         userContentController.add(self, name: "webviewreadyHandler")
         userContentController.add(self, name: "selectHandler")
@@ -28,6 +30,8 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         } else {
             print("Problem while loading index.html")
         }
+        
+        self.ticketNumberLabel = ticketNameLabel
     }
     
     func userContentController(_ userContentConvarller: WKUserContentController, didReceive message: WKScriptMessage) {
@@ -35,12 +39,12 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         case "webviewreadyHandler":
             
             var timelineData = [TimelineItem]()
-            timelineData.append(Ticket(id: 1, content: "TICKET-431", start: "2019-02-20", end: "2019-02-25"))
-            timelineData.append(Ticket(id: 2, content: "TICKET-422", start: "2019-02-14", end: "2019-02-18"))
-            timelineData.append(Ticket(id: 3, content: "TICKET-434", start: "2019-02-15", end: "2019-02-23"))
-            timelineData.append(Ticket(id: 4, content: "TICKET-426", start: "2019-02-22", end: "2019-02-28"))
-            timelineData.append(Ticket(id: 5, content: "TICKET-415", start: "2019-02-12", end: "2019-02-14"))
-            timelineData.append(Ticket(id: 6, content: "TICKET-457", start: "2019-02-17", end: "2019-02-20"))
+            timelineData.append(Ticket(id: 1, content: "TICKET-431", ticketNumber: "TICKET-431", description: "", start: "2019-02-20", end: "2019-02-25"))
+            timelineData.append(Ticket(id: 2, content: "TICKET-422", ticketNumber: "TICKET-422", description: "", start: "2019-02-14", end: "2019-02-18"))
+            timelineData.append(Ticket(id: 3, content: "TICKET-434", ticketNumber: "TICKET-434", description: "", start: "2019-02-15", end: "2019-02-23"))
+            timelineData.append(Ticket(id: 4, content: "TICKET-426", ticketNumber: "TICKET-426", description: "", start: "2019-02-22", end: "2019-02-28"))
+            timelineData.append(Ticket(id: 5, content: "TICKET-415", ticketNumber: "TICKET-415", description: "", start: "2019-02-12", end: "2019-02-14"))
+            timelineData.append(Ticket(id: 6, content: "TICKET-457", ticketNumber: "TICKET-457", description: "", start: "2019-02-17", end: "2019-02-20"))
             
           
             self.initGraph(timelineItems: timelineData)
@@ -51,12 +55,15 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
             
             if let id = body["id"] as? Int,
                 let content = body["content"] as? String,
+                let ticketNumber = body["ticketNumber"] as? String,
+                let description = body["description"] as? String,
                 let start = body["start"] as? String,
                 let end = body["end"] as? String
             {
                 
-                let ticket = Ticket(id: id, content: content, start: start, end: end)
-                print(ticket)
+                let ticket = Ticket(id: id, content: content, ticketNumber: ticketNumber, description: description, start: start, end: end)
+                ticketNumberLabel?.stringValue = ticketNumber
+                //print(ticket)
             }
             break
         default:
@@ -89,6 +96,8 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
 protocol TimelineItem {
     var id: Int { get set }
     var content: String { get set }
+    var ticketNumber: String { get set }
+    var description: String { get set }
     var start: String { get set }
     var end: String { get set }
     
@@ -101,12 +110,16 @@ struct Ticket: TimelineItem {
     
     var id: Int
     var content: String
+    var ticketNumber: String
+    var description: String
     var start: String
     var end: String
     
     public func asDict() -> [String : Any] {
         return ["id": self.id,
                 "content": self.content,
+                "ticketNumber": self.ticketNumber,
+                "description": self.description,
                 "start": self.start,
                 "end": self.end] as [String : Any]
     }

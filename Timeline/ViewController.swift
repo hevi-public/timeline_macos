@@ -12,12 +12,12 @@ import WebKit
 class ViewController: NSViewController {
     
     @IBOutlet weak var webView: MyWebView!
-    @IBOutlet weak var ticketNameLabel: NSTextFieldCell!
+    @IBOutlet weak var ticketNumberLabel: NSTextFieldCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        webView.initialize()
+        webView.initialize(ticketNameLabel: ticketNumberLabel)
     }
 
     override var representedObject: Any? {

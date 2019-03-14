@@ -780,7 +780,7 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="ticketNameLabel" destination="Rsp-W2-pb2" id="BxU-cu-xtm"/>
+                        <outlet property="ticketNumberLabel" destination="Rsp-W2-pb2" id="BxU-cu-xtm"/>
                         <outlet property="webView" destination="nwM-ZB-YXE" id="fk8-fB-3tl"/>
                     </connections>
                 </viewController>
