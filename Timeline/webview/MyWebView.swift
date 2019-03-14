@@ -20,6 +20,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
     public func initialize() {
         let userContentController = self.configuration.userContentController as WKUserContentController
         userContentController.add(self, name: "webviewreadyHandler")
+        userContentController.add(self, name: "selectHandler")
         
         let urlpath = Bundle.main.path(forResource: "static/index", ofType: "html")
         if let urlpath = urlpath, let requesturl = URL(string: "file://" + urlpath) {
@@ -34,18 +35,29 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         case "webviewreadyHandler":
             
             var timelineData = [TimelineItem]()
-            timelineData.append(ExampleDataItem(id: 1, content: "TICKET-431", start: "2019-02-20", end: "2019-02-25"))
-            timelineData.append(ExampleDataItem(id: 2, content: "TICKET-422", start: "2019-02-14", end: "2019-02-18"))
-            timelineData.append(ExampleDataItem(id: 3, content: "TICKET-434", start: "2019-02-15", end: "2019-02-23"))
-            timelineData.append(ExampleDataItem(id: 4, content: "TICKET-426", start: "2019-02-22", end: "2019-02-28"))
-            timelineData.append(ExampleDataItem(id: 5, content: "TICKET-415", start: "2019-02-12", end: "2019-02-14"))
-            timelineData.append(ExampleDataItem(id: 6, content: "TICKET-457", start: "2019-02-17", end: "2019-02-20"))
+            timelineData.append(Ticket(id: 1, content: "TICKET-431", start: "2019-02-20", end: "2019-02-25"))
+            timelineData.append(Ticket(id: 2, content: "TICKET-422", start: "2019-02-14", end: "2019-02-18"))
+            timelineData.append(Ticket(id: 3, content: "TICKET-434", start: "2019-02-15", end: "2019-02-23"))
+            timelineData.append(Ticket(id: 4, content: "TICKET-426", start: "2019-02-22", end: "2019-02-28"))
+            timelineData.append(Ticket(id: 5, content: "TICKET-415", start: "2019-02-12", end: "2019-02-14"))
+            timelineData.append(Ticket(id: 6, content: "TICKET-457", start: "2019-02-17", end: "2019-02-20"))
             
           
             self.initGraph(timelineItems: timelineData)
             break
-        case "linkNodesHandler":
-            let body = message.body as! [String : String]
+        case "selectHandler":
+            //let msgbody = message.body as! String
+            let body = message.body as! [String : Any]
+            
+            if let id = body["id"] as? Int,
+                let content = body["content"] as? String,
+                let start = body["start"] as? String,
+                let end = body["end"] as? String
+            {
+                
+                let ticket = Ticket(id: id, content: content, start: start, end: end)
+                print(ticket)
+            }
             break
         default:
             break
@@ -83,7 +95,7 @@ protocol TimelineItem {
     func asDict() -> [String : Any]
 }
 
-struct ExampleDataItem: TimelineItem {
+struct Ticket: TimelineItem {
     
     typealias StringToAnyDict = [String : Any]
     

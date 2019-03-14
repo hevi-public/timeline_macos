@@ -12,6 +12,7 @@ import WebKit
 class ViewController: NSViewController {
     
     @IBOutlet weak var webView: MyWebView!
+    @IBOutlet weak var ticketNameLabel: NSTextFieldCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
