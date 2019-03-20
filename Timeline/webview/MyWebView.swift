@@ -63,20 +63,21 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
             }.resume()
             break
         case "selectHandler":
-            let body = message.body as! [String : Any]
+            if let body = message.body as? [String : Any] {
             
-            if let id = body["id"] as? Int,
-                let ticketNumber = body["ticketNumber"] as? String,
-                let description = body["description"] as? String,
-                let start = body["start"] as? String,
-                let end = body["end"] as? String
-            {
-                
-                _ = Ticket(id: id, ticketNumber: ticketNumber, description: description, start: start, end: end)
-                ticketNumberLabel?.stringValue = ticketNumber
-                if let descriptionTextView = descriptionTextView {
-                    self.clearText(textView: descriptionTextView)
-                    descriptionTextView.insertText(description)
+                if let id = body["id"] as? Int,
+                    let ticketNumber = body["ticketNumber"] as? String,
+                    let description = body["description"] as? String,
+                    let start = body["start"] as? String,
+                    let end = body["end"] as? String
+                {
+                    
+                    _ = Ticket(id: id, ticketNumber: ticketNumber, description: description, start: start, end: end)
+                    ticketNumberLabel?.stringValue = ticketNumber
+                    if let descriptionTextView = descriptionTextView {
+                        self.clearText(textView: descriptionTextView)
+                        descriptionTextView.insertText(description)
+                    }
                 }
             }
             break
