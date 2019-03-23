@@ -16,6 +16,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var descriptionView: NSClipView!
     @IBOutlet var descriptionTextView: NSTextView!
     @IBOutlet weak var typeLabel: NSTextField!
+    @IBOutlet weak var priorityLabel: NSTextField!
     
     
     override func viewDidLoad() {
@@ -23,6 +24,7 @@ class ViewController: NSViewController {
 
         webView.initialize(ticketNameLabel: ticketNumberLabel,
                            typeLabel: typeLabel,
+                           priorityLabel: priorityLabel,
                            descriptionTextView: descriptionTextView)
     }
 
