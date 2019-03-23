@@ -15,12 +15,15 @@ class ViewController: NSViewController {
     @IBOutlet weak var ticketNumberLabel: NSTextFieldCell!
     @IBOutlet weak var descriptionView: NSClipView!
     @IBOutlet var descriptionTextView: NSTextView!
+    @IBOutlet weak var typeLabel: NSTextField!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        webView.initialize(ticketNameLabel: ticketNumberLabel, descriptionTextView: descriptionTextView)
+        webView.initialize(ticketNameLabel: ticketNumberLabel,
+                           typeLabel: typeLabel,
+                           descriptionTextView: descriptionTextView)
     }
 
     override var representedObject: Any? {

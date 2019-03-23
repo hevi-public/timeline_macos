@@ -13,6 +13,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
     
     var ticketNumberLabel: NSTextFieldCell?
     var descriptionTextView: NSTextView?
+    var typeLabel: NSTextField?
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -20,7 +21,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         // Drawing code here.
     }
 
-    public func initialize(ticketNameLabel: NSTextFieldCell, descriptionTextView: NSTextView) {
+    public func initialize(ticketNameLabel: NSTextFieldCell, typeLabel: NSTextField, descriptionTextView: NSTextView) {
         let userContentController = self.configuration.userContentController as WKUserContentController
         userContentController.add(self, name: "webviewreadyHandler")
         userContentController.add(self, name: "selectHandler")
@@ -33,6 +34,8 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         }
         
         self.ticketNumberLabel = ticketNameLabel
+        self.typeLabel = typeLabel
+        
         self.descriptionTextView = descriptionTextView
     }
     
@@ -68,14 +71,14 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                 if let id = body["id"] as? Int,
                     let ticketNumber = body["ticketNumber"] as? String,
                     let description = body["description"] as? String,
-                    let type = body["type"] as? String,
+                    let type = body["ticketType"] as? String,
                     let priority = body["priority"] as? String,
                     let status = body["status"] as? String,
                     let assignee = body["assignee"] as? String,
                     let reporter = body["reporter"] as? String,
                     let comments = body["comments"] as? [String],
                     let attachments = body["attachments"] as? [String],
-                    let tshirtSize = body["tshirtSize"] as? String,
+                    //let tshirtSize = body["tshirtSize"] as? String,
                     let start = body["start"] as? String,
                     let end = body["end"] as? String
                 {
@@ -90,10 +93,13 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                                reporter: reporter,
                                comments: comments,
                                attachments: attachments,
-                               tshirtSize: tshirtSize,
+                               tshirtSize: nil,
                                start: start,
                                end: end)
+                    
                     ticketNumberLabel?.stringValue = ticketNumber
+                    typeLabel?.stringValue = type
+                    
                     if let descriptionTextView = descriptionTextView {
                         self.clearText(textView: descriptionTextView)
                         descriptionTextView.insertText(description)

@@ -777,6 +777,15 @@
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                     </scroller>
                                                                 </scrollView>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VQe-6b-DUf">
+                                                                    <rect key="frame" x="219" y="129" width="79" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="TicketType" id="kDO-Pi-eeo">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="S5d-lD-uaU" firstAttribute="top" secondItem="Waf-vZ-TnU" secondAttribute="top" constant="4" id="76H-dd-vfk"/>
@@ -806,6 +815,7 @@
                         <outlet property="descriptionTextView" destination="hVS-Ns-feQ" id="JUw-p6-W57"/>
                         <outlet property="descriptionView" destination="Ctl-WJ-NHv" id="uNo-ki-N28"/>
                         <outlet property="ticketNumberLabel" destination="Rsp-W2-pb2" id="BxU-cu-xtm"/>
+                        <outlet property="typeLabel" destination="VQe-6b-DUf" id="OMX-ka-c5w"/>
                         <outlet property="webView" destination="nwM-ZB-YXE" id="fk8-fB-3tl"/>
                     </connections>
                 </viewController>
