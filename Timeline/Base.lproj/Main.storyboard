@@ -804,6 +804,33 @@
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DSN-Jn-gyH">
+                                                                    <rect key="frame" x="225" y="73" width="81" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Assignee" id="NzQ-vD-caX">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0jW-ai-DuO">
+                                                                    <rect key="frame" x="225" y="55" width="73" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Reporter" id="UuF-5l-oqV">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wkG-A6-648">
+                                                                    <rect key="frame" x="227" y="36" width="73" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="T-shirt size" id="vxx-4l-Y8l">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="S5d-lD-uaU" firstAttribute="top" secondItem="Waf-vZ-TnU" secondAttribute="top" constant="4" id="76H-dd-vfk"/>
@@ -830,9 +857,12 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="assigneeLabel" destination="DSN-Jn-gyH" id="K7c-LH-1dP"/>
                         <outlet property="descriptionTextView" destination="hVS-Ns-feQ" id="JUw-p6-W57"/>
                         <outlet property="descriptionView" destination="Ctl-WJ-NHv" id="uNo-ki-N28"/>
                         <outlet property="priorityLabel" destination="voo-2h-Y9Y" id="Tkq-Lu-SCc"/>
+                        <outlet property="reporterLabel" destination="0jW-ai-DuO" id="aIW-kc-eMC"/>
+                        <outlet property="sizeLabel" destination="wkG-A6-648" id="Abx-Rk-Nkg"/>
                         <outlet property="statusLabel" destination="TGd-5S-WR5" id="43I-Qq-sgp"/>
                         <outlet property="ticketNumberLabel" destination="Rsp-W2-pb2" id="BxU-cu-xtm"/>
                         <outlet property="typeLabel" destination="VQe-6b-DUf" id="OMX-ka-c5w"/>

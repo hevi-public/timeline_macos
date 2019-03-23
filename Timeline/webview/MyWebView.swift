@@ -16,6 +16,10 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
     var typeLabel: NSTextField?
     var priorityLabel: NSTextField?
     var statusLabel: NSTextField?
+    var assigneeLabel: NSTextField?
+    var reporterLabel: NSTextField?
+    var sizeLabel: NSTextField?
+    
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -27,6 +31,9 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                            typeLabel: NSTextField,
                            priorityLabel: NSTextField,
                            statusLabel: NSTextField,
+                           assigneeLabel: NSTextField,
+                           reporterLabel: NSTextField,
+                           sizeLabel: NSTextField,
                            descriptionTextView: NSTextView) {
         let userContentController = self.configuration.userContentController as WKUserContentController
         userContentController.add(self, name: "webviewreadyHandler")
@@ -43,6 +50,9 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         self.typeLabel = typeLabel
         self.priorityLabel = priorityLabel
         self.statusLabel = statusLabel
+        self.assigneeLabel = assigneeLabel
+        self.reporterLabel = reporterLabel
+        self.sizeLabel = sizeLabel
         
         self.descriptionTextView = descriptionTextView
     }
@@ -86,7 +96,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                     let reporter = body["reporter"] as? String,
                     let comments = body["comments"] as? [String],
                     let attachments = body["attachments"] as? [String],
-                    //let tshirtSize = body["tshirtSize"] as? String,
+                    //let size = body["size"] as? String,
                     let start = body["start"] as? String,
                     let end = body["end"] as? String
                 {
@@ -101,7 +111,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                                reporter: reporter,
                                comments: comments,
                                attachments: attachments,
-                               tshirtSize: nil,
+                               size: nil,
                                start: start,
                                end: end)
                     
@@ -109,6 +119,9 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                     typeLabel?.stringValue = type
                     priorityLabel?.stringValue = priority
                     statusLabel?.stringValue = status
+                    assigneeLabel?.stringValue = assignee
+                    reporterLabel?.stringValue = reporter
+                    sizeLabel?.stringValue = "size"
                     
                     
                     if let descriptionTextView = descriptionTextView {
@@ -161,7 +174,7 @@ protocol TimelineItem {
     var reporter: String { get set }
     var comments: [String] { get set }
     var attachments: [String] { get set }
-    var tshirtSize: String? { get set }
+    var size: String? { get set }
     var start: String { get set }
     var end: String { get set }
     
@@ -182,7 +195,7 @@ struct Ticket: TimelineItem, Decodable {
     var reporter: String
     var comments: [String]
     var attachments: [String]
-    var tshirtSize: String?
+    var size: String?
     var start: String
     var end: String
     
@@ -198,7 +211,7 @@ struct Ticket: TimelineItem, Decodable {
                 "reporter": self.reporter,
                 "comments": self.comments,
                 "attachments": self.attachments,
-                "tshirtSize": self.tshirtSize,
+                "size": self.size,
                 "start": self.start,
                 "end": self.end] as [String : Any]
     }
