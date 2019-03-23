@@ -15,6 +15,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
     var descriptionTextView: NSTextView?
     var typeLabel: NSTextField?
     var priorityLabel: NSTextField?
+    var statusLabel: NSTextField?
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -25,6 +26,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
     public func initialize(ticketNameLabel: NSTextFieldCell,
                            typeLabel: NSTextField,
                            priorityLabel: NSTextField,
+                           statusLabel: NSTextField,
                            descriptionTextView: NSTextView) {
         let userContentController = self.configuration.userContentController as WKUserContentController
         userContentController.add(self, name: "webviewreadyHandler")
@@ -40,6 +42,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         self.ticketNumberLabel = ticketNameLabel
         self.typeLabel = typeLabel
         self.priorityLabel = priorityLabel
+        self.statusLabel = statusLabel
         
         self.descriptionTextView = descriptionTextView
     }
@@ -105,6 +108,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                     ticketNumberLabel?.stringValue = ticketNumber
                     typeLabel?.stringValue = type
                     priorityLabel?.stringValue = priority
+                    statusLabel?.stringValue = status
                     
                     
                     if let descriptionTextView = descriptionTextView {
