@@ -64,15 +64,35 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
             break
         case "selectHandler":
             if let body = message.body as? [String : Any] {
-            
+                
                 if let id = body["id"] as? Int,
                     let ticketNumber = body["ticketNumber"] as? String,
                     let description = body["description"] as? String,
+                    let type = body["type"] as? String,
+                    let priority = body["priority"] as? String,
+                    let status = body["status"] as? String,
+                    let assignee = body["assignee"] as? String,
+                    let reporter = body["reporter"] as? String,
+                    let comments = body["comments"] as? [String],
+                    let attachments = body["attachments"] as? [String],
+                    let tshirtSize = body["tshirtSize"] as? String,
                     let start = body["start"] as? String,
                     let end = body["end"] as? String
                 {
                     
-                    _ = Ticket(id: id, ticketNumber: ticketNumber, description: description, start: start, end: end)
+                    _ = Ticket(id: id,
+                               ticketNumber: ticketNumber,
+                               description: description,
+                               type: type,
+                               priority: priority,
+                               status: status,
+                               assignee: assignee,
+                               reporter: reporter,
+                               comments: comments,
+                               attachments: attachments,
+                               tshirtSize: tshirtSize,
+                               start: start,
+                               end: end)
                     ticketNumberLabel?.stringValue = ticketNumber
                     if let descriptionTextView = descriptionTextView {
                         self.clearText(textView: descriptionTextView)
@@ -117,6 +137,14 @@ protocol TimelineItem {
     var id: Int { get set }
     var ticketNumber: String { get set }
     var description: String { get set }
+    var type: String { get set }
+    var priority: String { get set }
+    var status: String { get set }
+    var assignee: String { get set }
+    var reporter: String { get set }
+    var comments: [String] { get set }
+    var attachments: [String] { get set }
+    var tshirtSize: String? { get set }
     var start: String { get set }
     var end: String { get set }
     
@@ -130,6 +158,14 @@ struct Ticket: TimelineItem, Decodable {
     var id: Int
     var ticketNumber: String
     var description: String
+    var type: String
+    var priority: String
+    var status: String
+    var assignee: String
+    var reporter: String
+    var comments: [String]
+    var attachments: [String]
+    var tshirtSize: String?
     var start: String
     var end: String
     
@@ -138,7 +174,17 @@ struct Ticket: TimelineItem, Decodable {
                 "content": self.ticketNumber,
                 "ticketNumber": self.ticketNumber,
                 "description": self.description,
+                "ticketType": self.type,
+                "priority": self.priority,
+                "status": self.status,
+                "assignee": self.assignee,
+                "reporter": self.reporter,
+                "comments": self.comments,
+                "attachments": self.attachments,
+                "tshirtSize": self.tshirtSize,
                 "start": self.start,
                 "end": self.end] as [String : Any]
     }
+    
+    
 }
