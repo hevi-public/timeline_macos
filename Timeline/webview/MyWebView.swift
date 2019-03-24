@@ -61,7 +61,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         switch message.name {
         case "webviewreadyHandler":
             
-            var timelineData = [TimelineItem]()
+            var timelineData = [Ticket]()
             
             let urlString = "http://localhost:8080/ticket"
             guard let url = URL(string: urlString) else { return }
@@ -138,7 +138,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         }
     }
     
-    public func initGraph(timelineItems: [TimelineItem]) {
+    public func initGraph(timelineItems: [Ticket]) {
         
         let items = timelineItems.map { timelineItem -> [String:Any] in
             return timelineItem.asDict()
@@ -165,30 +165,11 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
     }
 }
 
-protocol TimelineItem {
-    var id: Int { get set }
-    var ticketNumber: String { get set }
-    var description: String { get set }
-    var title: String { get set }
-    var type: String { get set }
-    var priority: String { get set }
-    var status: String { get set }
-    var assignee: String { get set }
-    var reporter: String { get set }
-    var comments: [String] { get set }
-    var attachments: [String] { get set }
-    var size: String? { get set }
-    var start: String { get set }
-    var end: String { get set }
-    
-    func asDict() -> [String : Any]
-}
-
 struct TicketResponse: Decodable {
     var tickets: [Ticket]
 }
 
-struct Ticket: TimelineItem, Decodable {
+struct Ticket: Decodable {
     
     typealias StringToAnyDict = [String : Any]
     
