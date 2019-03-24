@@ -21,6 +21,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
     var sizeLabel: NSTextField?
     var overView: NSView?
     var selectView: NSView?
+    var recentTicketsView: NSStackView?
     
     var recentlyUpdatedTickets = [Ticket]()
     var recentComments = [Comment]()
@@ -41,7 +42,8 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                            sizeLabel: NSTextField,
                            descriptionTextView: NSTextView,
                            overView: NSView,
-                           selectView: NSView) {
+                           selectView: NSView,
+                           recentTicketsView: NSStackView) {
         
         self.overView = overView
         self.selectView = selectView
@@ -70,6 +72,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         self.sizeLabel = sizeLabel
         
         self.descriptionTextView = descriptionTextView
+        self.recentTicketsView = recentTicketsView
     }
 
     func userContentController(_ userContentConvarller: WKUserContentController, didReceive message: WKScriptMessage) {
@@ -90,6 +93,13 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                     DispatchQueue.main.async {
                         self.recentlyUpdatedTickets.append(contentsOf: ticketsData.overview.recentlyUpdatedTickets)
                         self.recentComments.append(contentsOf: ticketsData.overview.recentComments)
+                        
+                        (self.recentTicketsView!.subviews[0] as! NSTextField).stringValue = self.recentlyUpdatedTickets[0].ticketNumber + " - " + self.recentlyUpdatedTickets[0].title
+                        (self.recentTicketsView!.subviews[1] as! NSTextField).stringValue = self.recentlyUpdatedTickets[1].ticketNumber + " - " + self.recentlyUpdatedTickets[1].title
+                        (self.recentTicketsView!.subviews[2] as! NSTextField).stringValue = self.recentlyUpdatedTickets[2].ticketNumber + " - " + self.recentlyUpdatedTickets[2].title
+                        (self.recentTicketsView!.subviews[3] as! NSTextField).stringValue = self.recentlyUpdatedTickets[3].ticketNumber + " - " + self.recentlyUpdatedTickets[3].title
+                        (self.recentTicketsView!.subviews[4] as! NSTextField).stringValue = self.recentlyUpdatedTickets[4].ticketNumber + " - " + self.recentlyUpdatedTickets[4].title
+                        
                         
                         self.initGraph(timelineItems: ticketsData.tickets)
                     }

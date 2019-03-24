@@ -25,6 +25,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var overView: NSView!
     @IBOutlet weak var selectView: NSView!
     
+    @IBOutlet weak var recentTicketsView: NSStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,8 @@ class ViewController: NSViewController {
                            sizeLabel: self.sizeLabel,
                            descriptionTextView: self.descriptionTextView,
                            overView: self.overView,
-                           selectView: self.selectView)
+                           selectView: self.selectView,
+                           recentTicketsView: self.recentTicketsView)
     }
 
     override var representedObject: Any? {
