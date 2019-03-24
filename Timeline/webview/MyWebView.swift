@@ -97,7 +97,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                     let reporter = body["reporter"] as? String,
                     let comments = body["comments"] as? [String],
                     let attachments = body["attachments"] as? [String],
-                    //let size = body["size"] as? String,
+                    let size = body["size"] as? String,
                     let start = body["start"] as? String,
                     let end = body["end"] as? String
                 {
@@ -113,7 +113,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                                reporter: reporter,
                                comments: comments,
                                attachments: attachments,
-                               size: nil,
+                               size: size,
                                start: start,
                                end: end)
                     
@@ -123,7 +123,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                     statusLabel?.stringValue = status
                     assigneeLabel?.stringValue = assignee
                     reporterLabel?.stringValue = reporter
-                    sizeLabel?.stringValue = "size"
+                    sizeLabel?.stringValue = size
                     
                     
                     if let descriptionTextView = descriptionTextView {
