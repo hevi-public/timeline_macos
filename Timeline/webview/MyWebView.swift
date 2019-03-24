@@ -71,7 +71,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         
         self.descriptionTextView = descriptionTextView
     }
-    
+
     func userContentController(_ userContentConvarller: WKUserContentController, didReceive message: WKScriptMessage) {
         switch message.name {
         case "webviewreadyHandler":
@@ -134,8 +134,10 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                                end: end,
                                updatedAt: updatedAt)
                     
+                    let typeDisplayString = getTypeDisplayString(type)
+
                     ticketNumberLabel?.stringValue = ticketNumber
-                    typeLabel?.stringValue = type
+                    typeLabel?.attributedStringValue = typeDisplayString
                     priorityLabel?.stringValue = priority
                     statusLabel?.stringValue = status
                     assigneeLabel?.stringValue = assignee
@@ -188,6 +190,28 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         textView.selectAll(nil)
         textView.deleteBackward(nil)
     }
+}
+
+private func getTypeDisplayString(_ type: String) -> NSAttributedString {
+    var typeColor = NSColor.blue
+    switch type {
+    case "BUG":
+        typeColor = NSColor.red
+        break
+    case "STORY":
+        typeColor = NSColor.green
+        break
+    default:
+        print(type + " type not implemented")
+    }
+    let typeDisplayString: NSMutableAttributedString =  NSMutableAttributedString(string: type)
+    typeDisplayString.addAttribute(NSAttributedString.Key.foregroundColor, value: typeColor, range: NSMakeRange(0, typeDisplayString.length))
+    
+    let paragraph = NSMutableParagraphStyle()
+    paragraph.alignment = .right
+    
+    typeDisplayString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraph, range: NSMakeRange(0, typeDisplayString.length))
+    return typeDisplayString
 }
 
 struct TicketResponse: Decodable {
