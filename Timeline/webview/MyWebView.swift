@@ -19,6 +19,8 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
     var assigneeLabel: NSTextField?
     var reporterLabel: NSTextField?
     var sizeLabel: NSTextField?
+    var overView: NSView?
+    var selectView: NSView?
     
     var recentlyUpdatedTickets = [Ticket]()
     var recentComments = [Comment]()
@@ -37,10 +39,20 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                            assigneeLabel: NSTextField,
                            reporterLabel: NSTextField,
                            sizeLabel: NSTextField,
-                           descriptionTextView: NSTextView) {
+                           descriptionTextView: NSTextView,
+                           overView: NSView,
+                           selectView: NSView) {
+        
+        self.overView = overView
+        self.selectView = selectView
+        
+        self.selectView!.isHidden = true
+        self.overView?.isHidden = false
+        
         let userContentController = self.configuration.userContentController as WKUserContentController
         userContentController.add(self, name: "webviewreadyHandler")
         userContentController.add(self, name: "selectHandler")
+        userContentController.add(self, name: "deselectHandler")
         
         let urlpath = Bundle.main.path(forResource: "static/index", ofType: "html")
         if let urlpath = urlpath, let requesturl = URL(string: "file://" + urlpath) {
@@ -135,10 +147,18 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                         self.clearText(textView: descriptionTextView)
                         descriptionTextView.insertText(description)
                     }
+                    
+                    self.selectView?.isHidden = false
+                    self.overView?.isHidden = true
                 }
             }
             break
+        case "deselectHandler":
+            self.selectView?.isHidden = true
+            self.overView?.isHidden = false
+            break
         default:
+            print("Adapter not implemented for " + message.name)
             break
         }
     }
@@ -210,7 +230,8 @@ struct Ticket: Decodable {
                 "attachments": self.attachments,
                 "size": self.size,
                 "start": self.start,
-                "end": self.end] as [String : Any]
+                "end": self.end,
+                "updatedAt": self.updatedAt] as [String : Any]
     }
 }
 

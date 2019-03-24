@@ -22,19 +22,23 @@ class ViewController: NSViewController {
     @IBOutlet weak var reporterLabel: NSTextField!
     @IBOutlet weak var sizeLabel: NSTextField!
     
+    @IBOutlet weak var overView: NSView!
+    @IBOutlet weak var selectView: NSView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        webView.initialize(ticketNameLabel: ticketNumberLabel,
-                           typeLabel: typeLabel,
-                           priorityLabel: priorityLabel,
-                           statusLabel: statusLabel,
-                           assigneeLabel: assigneeLabel,
-                           reporterLabel: reporterLabel,
-                           sizeLabel: sizeLabel,
-                           descriptionTextView: descriptionTextView)
+        webView.initialize(ticketNameLabel: self.ticketNumberLabel,
+                           typeLabel: self.typeLabel,
+                           priorityLabel: self.priorityLabel,
+                           statusLabel: self.statusLabel,
+                           assigneeLabel: self.assigneeLabel,
+                           reporterLabel: self.reporterLabel,
+                           sizeLabel: self.sizeLabel,
+                           descriptionTextView: self.descriptionTextView,
+                           overView: self.overView,
+                           selectView: self.selectView)
     }
 
     override var representedObject: Any? {
