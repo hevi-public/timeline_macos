@@ -20,6 +20,9 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
     var reporterLabel: NSTextField?
     var sizeLabel: NSTextField?
     
+    var recentlyUpdatedTickets = [Ticket]()
+    var recentComments = [Comment]()
+    
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -61,8 +64,6 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         switch message.name {
         case "webviewreadyHandler":
             
-            var timelineData = [Ticket]()
-            
             let urlString = "http://localhost:8080/ticket"
             guard let url = URL(string: urlString) else { return }
             
@@ -75,7 +76,9 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                 do {
                     let ticketsData = try JSONDecoder().decode(TicketResponse.self, from: data)
                     DispatchQueue.main.async {
-                        timelineData.append(contentsOf: ticketsData.tickets)
+                        self.recentlyUpdatedTickets.append(contentsOf: ticketsData.overview.recentlyUpdatedTickets)
+                        self.recentComments.append(contentsOf: ticketsData.overview.recentComments)
+                        
                         self.initGraph(timelineItems: ticketsData.tickets)
                     }
                 } catch let jsonError {
@@ -99,7 +102,8 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                     let attachments = body["attachments"] as? [String],
                     let size = body["size"] as? String,
                     let start = body["start"] as? String,
-                    let end = body["end"] as? String
+                    let end = body["end"] as? String,
+                    let updatedAt = body["updatedAt"] as? String
                 {
                     
                     _ = Ticket(id: id,
@@ -115,7 +119,8 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                                attachments: attachments,
                                size: size,
                                start: start,
-                               end: end)
+                               end: end,
+                               updatedAt: updatedAt)
                     
                     ticketNumberLabel?.stringValue = ticketNumber
                     typeLabel?.stringValue = type
@@ -167,6 +172,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
 
 struct TicketResponse: Decodable {
     var tickets: [Ticket]
+    var overview: Overview
 }
 
 struct Ticket: Decodable {
@@ -187,6 +193,7 @@ struct Ticket: Decodable {
     var size: String?
     var start: String
     var end: String
+    var updatedAt: String
     
     public func asDict() -> [String : Any] {
         return ["id": self.id,
@@ -205,6 +212,13 @@ struct Ticket: Decodable {
                 "start": self.start,
                 "end": self.end] as [String : Any]
     }
-    
+}
+
+struct Overview: Decodable {
+    var recentlyUpdatedTickets: [Ticket]
+    var recentComments: [Comment]
+}
+
+struct Comment: Decodable {
     
 }
