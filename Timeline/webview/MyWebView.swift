@@ -89,6 +89,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                 if let id = body["id"] as? Int,
                     let ticketNumber = body["ticketNumber"] as? String,
                     let description = body["description"] as? String,
+                    let title = body["ticketTitle"] as? String,
                     let type = body["ticketType"] as? String,
                     let priority = body["priority"] as? String,
                     let status = body["status"] as? String,
@@ -104,6 +105,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                     _ = Ticket(id: id,
                                ticketNumber: ticketNumber,
                                description: description,
+                               title: title,
                                type: type,
                                priority: priority,
                                status: status,
@@ -167,6 +169,7 @@ protocol TimelineItem {
     var id: Int { get set }
     var ticketNumber: String { get set }
     var description: String { get set }
+    var title: String { get set }
     var type: String { get set }
     var priority: String { get set }
     var status: String { get set }
@@ -188,6 +191,7 @@ struct Ticket: TimelineItem, Decodable {
     var id: Int
     var ticketNumber: String
     var description: String
+    var title: String
     var type: String
     var priority: String
     var status: String
@@ -202,8 +206,9 @@ struct Ticket: TimelineItem, Decodable {
     public func asDict() -> [String : Any] {
         return ["id": self.id,
                 "content": self.ticketNumber,
-                "ticketNumber": self.ticketNumber,
+                "ticketNumber": self.ticketNumber + " - " + self.title,
                 "description": self.description,
+                "ticketTitle": self.title,
                 "ticketType": self.type,
                 "priority": self.priority,
                 "status": self.status,
