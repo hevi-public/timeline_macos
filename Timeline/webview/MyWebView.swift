@@ -73,10 +73,10 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                 
                 guard let data = data else { return }
                 do {
-                    let articlesData = try JSONDecoder().decode([Ticket].self, from: data)
+                    let ticketsData = try JSONDecoder().decode(TicketResponse.self, from: data)
                     DispatchQueue.main.async {
-                        timelineData.append(contentsOf: articlesData)
-                        self.initGraph(timelineItems: articlesData)
+                        timelineData.append(contentsOf: ticketsData.tickets)
+                        self.initGraph(timelineItems: ticketsData.tickets)
                     }
                 } catch let jsonError {
                     print(jsonError)
@@ -182,6 +182,10 @@ protocol TimelineItem {
     var end: String { get set }
     
     func asDict() -> [String : Any]
+}
+
+struct TicketResponse: Decodable {
+    var tickets: [Ticket]
 }
 
 struct Ticket: TimelineItem, Decodable {
