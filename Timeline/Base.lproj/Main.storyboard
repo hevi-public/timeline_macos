@@ -843,7 +843,7 @@
                                                                     <subviews>
                                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="voo-2h-Y9Y">
                                                                             <rect key="frame" x="881" y="439" width="110" height="55"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Priority" id="JRY-6g-sXo">
                                                                                 <font key="font" size="26" name="Helvetica"/>
                                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -879,7 +879,7 @@
                                                                         </textField>
                                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4h9-pF-XHi">
                                                                             <rect key="frame" x="908" y="346" width="80" height="17"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Reporter" id="HI9-b4-zXe">
                                                                                 <font key="font" size="13" name="Helvetica"/>
                                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -888,7 +888,7 @@
                                                                         </textField>
                                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FYS-it-bMd">
                                                                             <rect key="frame" x="928" y="285" width="60" height="17"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Assignee" id="cj3-ot-mwC">
                                                                                 <font key="font" metaFont="system"/>
                                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -897,7 +897,7 @@
                                                                         </textField>
                                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VQe-6b-DUf">
                                                                             <rect key="frame" x="860" y="493" width="131" height="51"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Story" id="kDO-Pi-eeo">
                                                                                 <font key="font" size="32" name="Helvetica"/>
                                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -906,7 +906,7 @@
                                                                         </textField>
                                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wkG-A6-648">
                                                                             <rect key="frame" x="861" y="418" width="130" height="32"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="T-shirt size" id="vxx-4l-Y8l">
                                                                                 <font key="font" size="26" name="Helvetica"/>
                                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>

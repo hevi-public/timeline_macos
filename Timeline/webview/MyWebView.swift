@@ -211,6 +211,9 @@ private func getTypeDisplayString(_ type: String) -> NSAttributedString {
     case "STORY":
         typeColor = NSColor.green
         break
+    case "TASK":
+        typeColor = NSColor.blue
+        break
     default:
         print(type + " type not implemented")
     }
