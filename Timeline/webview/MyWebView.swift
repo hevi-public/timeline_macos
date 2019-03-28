@@ -11,6 +11,8 @@ import WebKit
 
 class MyWebView: WKWebView, WKScriptMessageHandler {
     
+    var outlineView: MyOutlineView?
+    
     var ticketNumberLabel: NSTextFieldCell?
     var descriptionTextView: NSTextView?
     var typeLabel: NSTextField?
@@ -23,6 +25,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
     var selectView: NSView?
     var recentTicketsView: NSStackView?
     
+    var tickets = [Ticket]()
     var recentlyUpdatedTickets = [Ticket]()
     var recentComments = [Comment]()
     
@@ -43,7 +46,8 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                            descriptionTextView: NSTextView,
                            overView: NSView,
                            selectView: NSView,
-                           recentTicketsView: NSStackView) {
+                           recentTicketsView: NSStackView,
+                           outlineView: MyOutlineView) {
         
         self.overView = overView
         self.selectView = selectView
@@ -73,6 +77,8 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         
         self.descriptionTextView = descriptionTextView
         self.recentTicketsView = recentTicketsView
+        
+        self.outlineView = outlineView
     }
 
     func userContentController(_ userContentConvarller: WKUserContentController, didReceive message: WKScriptMessage) {
@@ -100,6 +106,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                         (self.recentTicketsView!.subviews[3] as! NSTextField).stringValue = self.recentlyUpdatedTickets[3].ticketNumber + " - " + self.recentlyUpdatedTickets[3].title
                         (self.recentTicketsView!.subviews[4] as! NSTextField).stringValue = self.recentlyUpdatedTickets[4].ticketNumber + " - " + self.recentlyUpdatedTickets[4].title
                         
+                        self.tickets = ticketsData.tickets
                         
                         self.initGraph(timelineItems: ticketsData.tickets)
                     }
@@ -109,61 +116,39 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
             }.resume()
             break
         case "selectHandler":
-            if let body = message.body as? [String : Any] {
+                do {
+                    let id = (message.body as! Int)
                 
-                if let id = body["id"] as? Int,
-                    let ticketNumber = body["ticketNumber"] as? String,
-                    let description = body["description"] as? String,
-                    let title = body["ticketTitle"] as? String,
-                    let type = body["ticketType"] as? String,
-                    let priority = body["priority"] as? String,
-                    let status = body["status"] as? String,
-                    let assignee = body["assignee"] as? String,
-                    let reporter = body["reporter"] as? String,
-                    let comments = body["comments"] as? [String],
-                    let attachments = body["attachments"] as? [String],
-                    let size = body["size"] as? String,
-                    let start = body["start"] as? String,
-                    let end = body["end"] as? String,
-                    let updatedAt = body["updatedAt"] as? String
-                {
+                    let ticket = tickets.filter { filteredTicket -> Bool in
+                        filteredTicket.id == id
+                    }.first
+                
+                    if let ticket = ticket {
                     
-                    _ = Ticket(id: id,
-                               ticketNumber: ticketNumber,
-                               description: description,
-                               title: title,
-                               type: type,
-                               priority: priority,
-                               status: status,
-                               assignee: assignee,
-                               reporter: reporter,
-                               comments: comments,
-                               attachments: attachments,
-                               size: size,
-                               start: start,
-                               end: end,
-                               updatedAt: updatedAt)
-                    
-                    let typeDisplayString = getTypeDisplayString(type)
+                        let typeDisplayString = getTypeDisplayString(ticket.type)
 
-                    ticketNumberLabel?.stringValue = ticketNumber
-                    typeLabel?.attributedStringValue = typeDisplayString
-                    priorityLabel?.stringValue = priority
-                    statusLabel?.stringValue = status
-                    assigneeLabel?.stringValue = assignee
-                    reporterLabel?.stringValue = reporter
-                    sizeLabel?.stringValue = size
+                        ticketNumberLabel?.stringValue = ticket.ticketNumber
+                        typeLabel?.attributedStringValue = typeDisplayString
+                        priorityLabel?.stringValue = ticket.priority
+                        statusLabel?.stringValue = ticket.status
+                        assigneeLabel?.stringValue = ticket.assignee
+                        reporterLabel?.stringValue = ticket.reporter
+                        sizeLabel?.stringValue = ticket.size ?? "0"
                     
                     
-                    if let descriptionTextView = descriptionTextView {
-                        self.clearText(textView: descriptionTextView)
-                        descriptionTextView.insertText(description)
+                        if let descriptionTextView = descriptionTextView {
+                            self.clearText(textView: descriptionTextView)
+                            descriptionTextView.insertText(description)
+                        }
+                    
+                        self.selectView?.isHidden = false
+                        self.overView?.isHidden = true
+                    
+                        outlineView?.initialize(comments: ticket.comments)
                     }
-                    
-                    self.selectView?.isHidden = false
-                    self.overView?.isHidden = true
+                } catch let error {
+                    print(error)
                 }
-            }
             break
         case "deselectHandler":
             self.selectView?.isHidden = true
@@ -232,7 +217,7 @@ struct TicketResponse: Decodable {
     var overview: Overview
 }
 
-struct Ticket: Decodable {
+struct Ticket: Codable {
     
     typealias StringToAnyDict = [String : Any]
     
@@ -245,14 +230,34 @@ struct Ticket: Decodable {
     var status: String
     var assignee: String
     var reporter: String
-    var comments: [String]
+    var comments: [Comment]
     var attachments: [String]
     var size: String?
     var start: String
     var end: String
     var updatedAt: String
     
+
+    private enum CodingKeys : String, CodingKey {
+        case id = "id"
+        case ticketNumber = "ticketNumber"
+        case description = "description"
+        case title = "title"
+        case type = "type"
+        case priority = "priority"
+        case status = "status"
+        case assignee = "assignee"
+        case reporter = "reporter"
+        case comments = "comments"
+        case attachments = "attachments"
+        case size = "size"
+        case start = "start"
+        case end = "end"
+        case updatedAt = "updatedAt"
+    }
+    
     public func asDict() -> [String : Any] {
+        
         return ["id": self.id,
                 "content": self.ticketNumber,
                 "ticketNumber": self.ticketNumber + " - " + self.title,
@@ -263,7 +268,7 @@ struct Ticket: Decodable {
                 "status": self.status,
                 "assignee": self.assignee,
                 "reporter": self.reporter,
-                "comments": self.comments,
+                "comments": self.comments.description,
                 "attachments": self.attachments,
                 "size": self.size,
                 "start": self.start,
@@ -277,6 +282,22 @@ struct Overview: Decodable {
     var recentComments: [Comment]
 }
 
-struct Comment: Decodable {
+struct Comment: Codable {
     
+    var author: String
+    var content: String
+    var createdAt: String
+    let children: [Comment]
+    
+    public func asDict() -> [String : Any] {
+        
+        let dictChildren = self.children.map { child -> [String : Any] in
+            return child.asDict()
+        }
+        
+        return ["author": self.author,
+                "content": self.content,
+                "createdAt": self.createdAt,
+                "children": dictChildren] as [String : Any]
+    }
 }

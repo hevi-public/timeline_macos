@@ -12,6 +12,8 @@ import WebKit
 class ViewController: NSViewController {
     
     @IBOutlet weak var webView: MyWebView!
+    @IBOutlet weak var outlineView: MyOutlineView!
+    
     @IBOutlet weak var ticketNumberLabel: NSTextFieldCell!
     @IBOutlet weak var descriptionView: NSClipView!
     @IBOutlet var descriptionTextView: NSTextView!
@@ -40,7 +42,8 @@ class ViewController: NSViewController {
                            descriptionTextView: self.descriptionTextView,
                            overView: self.overView,
                            selectView: self.selectView,
-                           recentTicketsView: self.recentTicketsView)
+                           recentTicketsView: self.recentTicketsView,
+                           outlineView: self.outlineView)
     }
 
     override var representedObject: Any? {

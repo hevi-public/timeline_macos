@@ -4,7 +4,7 @@ var nodesCache;
 var edgesCache;
 
 
-var displayedData = {};
+var displayedData = [];
 
 function webviewReady() {
     callNativeApp()
@@ -44,7 +44,7 @@ function init(data) {
                                  }
                                  })[0];
         
-            webkit.messageHandlers.selectHandler.postMessage(selectedItem);
+            webkit.messageHandlers.selectHandler.postMessage(selectedItem.id);
         } else {
             webkit.messageHandlers.deselectHandler.postMessage("deselectHandler");
         }

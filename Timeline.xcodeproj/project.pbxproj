@@ -16,6 +16,8 @@
 		D71063EF2233165C005A38F1 /* TimelineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71063EE2233165C005A38F1 /* TimelineUITests.swift */; };
 		D710656A22331D6B005A38F1 /* MyWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D710656922331D6B005A38F1 /* MyWebView.swift */; };
 		D71066E22233B5B1005A38F1 /* static in Resources */ = {isa = PBXBuildFile; fileRef = D71066E12233B5B1005A38F1 /* static */; };
+		D7C07357224AABD700350B69 /* MyOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C07356224AABD700350B69 /* MyOutlineView.swift */; };
+		D7C07392224D616600350B69 /* CommentTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C07391224D616500350B69 /* CommentTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		D71063F02233165C005A38F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D710656922331D6B005A38F1 /* MyWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWebView.swift; sourceTree = "<group>"; };
 		D71066E12233B5B1005A38F1 /* static */ = {isa = PBXFileReference; lastKnownFileType = folder; path = static; sourceTree = "<group>"; };
+		D7C07356224AABD700350B69 /* MyOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOutlineView.swift; sourceTree = "<group>"; };
+		D7C07391224D616500350B69 /* CommentTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 		D71063CC2233165A005A38F1 /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
+				D7C07355224AABAE00350B69 /* outlineview */,
 				D71066E12233B5B1005A38F1 /* static */,
 				D7106568223318D5005A38F1 /* webview */,
 				D71063CD2233165A005A38F1 /* AppDelegate.swift */,
@@ -139,6 +144,15 @@
 				D710656922331D6B005A38F1 /* MyWebView.swift */,
 			);
 			path = webview;
+			sourceTree = "<group>";
+		};
+		D7C07355224AABAE00350B69 /* outlineview */ = {
+			isa = PBXGroup;
+			children = (
+				D7C07356224AABD700350B69 /* MyOutlineView.swift */,
+				D7C07391224D616500350B69 /* CommentTextField.swift */,
+			);
+			path = outlineview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +295,8 @@
 				D710656A22331D6B005A38F1 /* MyWebView.swift in Sources */,
 				D71063D32233165A005A38F1 /* Timeline.xcdatamodeld in Sources */,
 				D71063CE2233165A005A38F1 /* AppDelegate.swift in Sources */,
+				D7C07357224AABD700350B69 /* MyOutlineView.swift in Sources */,
+				D7C07392224D616600350B69 /* CommentTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
