@@ -17,6 +17,8 @@ class MyOutlineView: NSOutlineView {
         
         self.delegate = self
         self.dataSource = self
+    
+        self.reloadData()
     }
 
     override func draw(_ dirtyRect: NSRect) {
