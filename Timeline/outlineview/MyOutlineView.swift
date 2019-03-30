@@ -65,4 +65,14 @@ extension MyOutlineView: NSOutlineViewDataSource {
         
         return comments[index]
     }
+    
+    func outlineView(_ outlineView: NSOutlineView, heightOfRowByItem item: Any) -> CGFloat {
+        let comment = item as! Comment
+
+        let fakefield = NSTextField()
+        fakefield.stringValue = comment.content
+        
+        let newHeight = fakefield.cell!.cellSize(forBounds: NSMakeRect(CGFloat(0.0), CGFloat(0.0), outlineView.tableColumns[0].width, CGFloat(Float.greatestFiniteMagnitude))).height
+        return newHeight
+    }
 }

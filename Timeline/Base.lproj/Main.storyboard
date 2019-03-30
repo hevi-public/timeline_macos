@@ -961,7 +961,7 @@
                                                             <subviews>
                                                                 <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWR-lN-G65">
                                                                     <rect key="frame" x="-3" y="-3" width="1000" height="534"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <clipView key="contentView" ambiguous="YES" drawsBackground="NO" id="goH-sO-15b">
                                                                         <rect key="frame" x="0.0" y="0.0" width="1000" height="534"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -992,7 +992,10 @@
                                                                                                 <subviews>
                                                                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="UEM-QU-mut">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="578" height="17"/>
-                                                                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="rox-qw-zOg">
+                                                                                                        <constraints>
+                                                                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="l0f-f3-dAg"/>
+                                                                                                        </constraints>
+                                                                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Table View Cell" id="rox-qw-zOg">
                                                                                                             <font key="font" metaFont="system"/>
                                                                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
