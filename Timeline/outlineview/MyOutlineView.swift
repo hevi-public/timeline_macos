@@ -44,24 +44,37 @@ extension MyOutlineView: NSOutlineViewDelegate {
     
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         var view: NSTableCellView?
-        if let comment = item as? Comment {
-            view = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ContentCell"), owner: self) as? NSTableCellView
-            if let textField = view?.textField {
-                let parent = findParent(comment)
-                if comment.content != "" {
-                    textField.stringValue = comment.content
-                    textField.isEditable = false
-                } else {
-                    if let parent = parent {
-                        textField.placeholderString = "Reply to: " + parent.content
+        
+        switch tableColumn?.identifier {
+        case NSUserInterfaceItemIdentifier(rawValue: "ContentColumn"):
+            if let comment = item as? Comment {
+                view = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ContentColumn"), owner: self) as? NSTableCellView
+                if let textField = view?.textField {
+                    let parent = findParent(comment)
+                    if comment.content != "" {
+                        textField.stringValue = comment.content
+                        textField.isEditable = false
                     } else {
-                        textField.placeholderString = "Reply to ticket"
+                        if let parent = parent {
+                            textField.placeholderString = "Reply to: " + parent.content
+                        } else {
+                            textField.placeholderString = "Reply to ticket"
+                        }
                     }
                 }
+            } else {
+                
             }
-        } else {
-            
+            break
+        case NSUserInterfaceItemIdentifier(rawValue: "AuthorColumn"):
+            break
+        case NSUserInterfaceItemIdentifier(rawValue: "DateColumn"):
+            break
+        default:
+            print("not implemented")
         }
+        
+        
         return view
     }
     

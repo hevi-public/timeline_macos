@@ -973,7 +973,7 @@
                                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                                                 <tableColumns>
-                                                                                    <tableColumn identifier="ContentCell" width="578" minWidth="40" maxWidth="1000" id="sZB-o0-rSn" userLabel="ContentCell">
+                                                                                    <tableColumn identifier="ContentColumn" width="578" minWidth="40" maxWidth="1000" id="sZB-o0-rSn">
                                                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                                                             <font key="font" metaFont="smallSystem"/>
                                                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1014,7 +1014,7 @@
                                                                                             </tableCellView>
                                                                                         </prototypeCellViews>
                                                                                     </tableColumn>
-                                                                                    <tableColumn identifier="AuthorCell" width="148" minWidth="40" maxWidth="1000" id="Mjn-Oz-C07">
+                                                                                    <tableColumn identifier="AuthorColumn" width="148" minWidth="40" maxWidth="1000" id="Mjn-Oz-C07" userLabel="AuthorColumn">
                                                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                                                             <font key="font" metaFont="smallSystem"/>
                                                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1047,7 +1047,7 @@
                                                                                             </tableCellView>
                                                                                         </prototypeCellViews>
                                                                                     </tableColumn>
-                                                                                    <tableColumn identifier="DateCell" width="265" minWidth="10" maxWidth="3.4028234663852886e+38" id="7zK-1N-S8s">
+                                                                                    <tableColumn identifier="DateColumn" width="265" minWidth="10" maxWidth="3.4028234663852886e+38" id="7zK-1N-S8s" userLabel="DateColumn">
                                                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                                                             <font key="font" metaFont="smallSystem"/>
                                                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
