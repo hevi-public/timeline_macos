@@ -45,35 +45,44 @@ extension MyOutlineView: NSOutlineViewDelegate {
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         var view: NSTableCellView?
         
-        switch tableColumn?.identifier {
-        case NSUserInterfaceItemIdentifier(rawValue: "ContentColumn"):
-            if let comment = item as? Comment {
-                view = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ContentColumn"), owner: self) as? NSTableCellView
-                if let textField = view?.textField {
-                    let parent = findParent(comment)
-                    if comment.content != "" {
-                        textField.stringValue = comment.content
-                        textField.isEditable = false
-                    } else {
-                        if let parent = parent {
-                            textField.placeholderString = "Reply to: " + parent.content
+        if let comment = item as? Comment {
+            switch tableColumn?.identifier {
+            case NSUserInterfaceItemIdentifier(rawValue: "ContentColumn"):
+                
+                    view = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ContentColumn"), owner: self) as? NSTableCellView
+                    if let textField = view?.textField {
+                        let parent = findParent(comment)
+                        if comment.content != "" {
+                            textField.stringValue = comment.content
+                            textField.isEditable = false
                         } else {
-                            textField.placeholderString = "Reply to ticket"
+                            if let parent = parent {
+                                textField.placeholderString = "Reply to: " + parent.content
+                            } else {
+                                textField.placeholderString = "Reply to ticket"
+                            }
                         }
                     }
-                }
-            } else {
                 
+                break
+            case NSUserInterfaceItemIdentifier(rawValue: "AuthorColumn"):
+                view = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "AuthorColumn"), owner: self) as? NSTableCellView
+                if let textField = view?.textField {
+                    textField.stringValue = comment.author
+                }
+                break
+            case NSUserInterfaceItemIdentifier(rawValue: "DateColumn"):
+                view = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DateColumn"), owner: self) as? NSTableCellView
+                if let textField = view?.textField {
+                    textField.stringValue = comment.createdAt
+                }
+                break
+            default:
+                print("not implemented")
             }
-            break
-        case NSUserInterfaceItemIdentifier(rawValue: "AuthorColumn"):
-            break
-        case NSUserInterfaceItemIdentifier(rawValue: "DateColumn"):
-            break
-        default:
-            print("not implemented")
+        } else {
+            
         }
-        
         
         return view
     }
