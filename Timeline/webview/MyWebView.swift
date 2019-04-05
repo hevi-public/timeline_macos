@@ -270,7 +270,7 @@ struct Ticket: Codable {
                 "reporter": self.reporter,
                 "comments": self.comments.description,
                 "attachments": self.attachments,
-                "size": self.size,
+                "size": self.size as Any,
                 "start": self.start,
                 "end": self.end,
                 "updatedAt": self.updatedAt] as [String : Any]
@@ -284,10 +284,13 @@ struct Overview: Decodable {
 
 struct Comment: Codable {
     
+    var commentId: String
     var author: String
     var content: String
     var createdAt: String
-    let children: [Comment]
+    var children: [Comment]
+    var parentId: String?
+    
     
     public func asDict() -> [String : Any] {
         
@@ -295,9 +298,11 @@ struct Comment: Codable {
             return child.asDict()
         }
         
-        return ["author": self.author,
+        return ["commentId": self.commentId,
+                "author": self.author,
                 "content": self.content,
                 "createdAt": self.createdAt,
+                "parentId": self.parentId,
                 "children": dictChildren] as [String : Any]
     }
 }

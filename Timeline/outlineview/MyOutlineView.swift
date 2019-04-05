@@ -14,6 +14,17 @@ class MyOutlineView: NSOutlineView {
     
     func initialize(comments: [Comment]) {
         self.comments = comments
+//        
+//        var childrenWithEmpty = [Comment]()
+//        self.comments.forEach { comment in
+//            childrenWithEmpty.append(comment.addEmptyChild())
+//        }
+        self.comments = self.comments.map { comment -> Comment in
+            var comment2 = comment
+            comment2.children.append(Comment(commentId: "", author: "", content: "", createdAt: "", children: [], parentId: comment.commentId))
+            return comment2
+        }
+        self.comments.append(Comment(commentId: "", author: "", content: "", createdAt: "", children: [], parentId: nil))
         
         self.delegate = self
         self.dataSource = self
@@ -36,11 +47,35 @@ extension MyOutlineView: NSOutlineViewDelegate {
         if let comment = item as? Comment {
             view = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ContentCell"), owner: self) as? NSTableCellView
             if let textField = view?.textField {
-                textField.stringValue = comment.content
-                //textField.sizeToFit()
+                let parent = findParent(comment)
+                if comment.content != "" {
+                    textField.stringValue = comment.content
+                    textField.isEditable = false
+                } else {
+                    if let parent = parent {
+                        textField.placeholderString = "Reply to: " + parent.content
+                    } else {
+                        textField.placeholderString = "Reply to ticket"
+                    }
+                }
             }
+        } else {
+            
         }
         return view
+    }
+    
+    private func findParent(_ comment: Comment) -> Comment? {
+        return comments.filter { possibleParentComment -> Bool in
+            return comment.parentId == possibleParentComment.commentId && comment.parentId != ""
+//            return possibleParentComment.children.filter { possibleParentCommentChild -> Bool in
+//                return possibleParentCommentChild.commentId == comment.commentId
+//            }.count > 0
+        }.first
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, shouldEdit tableColumn: NSTableColumn?, item: Any) -> Bool {
+        return false
     }
 }
 
@@ -78,4 +113,5 @@ extension MyOutlineView: NSOutlineViewDataSource {
         let newHeight = fakefield.cell!.cellSize(forBounds: NSMakeRect(CGFloat(0.0), CGFloat(0.0), outlineView.tableColumns[0].width, CGFloat(Float.greatestFiniteMagnitude))).height
         return newHeight
     }
+   
 }
