@@ -61,6 +61,7 @@ function selectTicket(id) {
     
     //timeline.focus(id)
     timeline.setSelection(id)
+    webkit.messageHandlers.selectHandler.postMessage(id);
 }
 
 function updateGraph(graph) {

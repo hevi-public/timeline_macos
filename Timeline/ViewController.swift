@@ -27,6 +27,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var overView: NSView!
     @IBOutlet weak var selectView: NSView!
     
+    @IBOutlet weak var tabView: TabView!
+    
     @IBOutlet weak var recentTicketsView: RecentTicketsTableView!
     @IBOutlet weak var recentUpdatesView: RecentUpdatesTableView!
     
@@ -46,7 +48,8 @@ class ViewController: NSViewController {
                            selectView: self.selectView,
                            recentTicketsView: self.recentTicketsView,
                            recentUpdatesView: self.recentUpdatesView,
-                           outlineView: self.outlineView)
+                           outlineView: self.outlineView,
+                           tabView: self.tabView)
     }
 
     override var representedObject: Any? {

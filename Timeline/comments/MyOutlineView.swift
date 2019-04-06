@@ -133,6 +133,5 @@ extension MyOutlineView: NSOutlineViewDataSource {
         return newHeight
     }
     
-    
    
 }

@@ -25,10 +25,13 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
     var selectView: NSView?
     var recentTicketsView: RecentTicketsTableView?
     var recentUpdatesView: RecentUpdatesTableView?
+    var tabView: TabView?
     
     var tickets = [Ticket]()
     var recentlyUpdatedTickets = [Ticket]()
     var recentComments = [Comment]()
+    
+    var selectedTicket: Ticket? = nil
     
     
     override func draw(_ dirtyRect: NSRect) {
@@ -49,7 +52,8 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                            selectView: NSView,
                            recentTicketsView: RecentTicketsTableView,
                            recentUpdatesView: RecentUpdatesTableView,
-                           outlineView: MyOutlineView) {
+                           outlineView: MyOutlineView,
+                           tabView: TabView) {
         
         self.overView = overView
         self.selectView = selectView
@@ -80,6 +84,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         self.descriptionTextView = descriptionTextView
         self.recentTicketsView = recentTicketsView
         self.recentUpdatesView = recentUpdatesView
+        self.tabView = tabView
         
         self.outlineView = outlineView
     }
@@ -133,6 +138,9 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                     }.first
                 
                     if let ticket = ticket {
+                        
+                        self.selectedTicket = ticket
+                        self.tabView?.ticketSelected = true
                     
                         let typeDisplayString = DisplayString.getTypeDisplayString(ticket.type)
 
@@ -163,6 +171,8 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                 }
             break
         case "deselectHandler":
+            self.selectedTicket = nil
+            self.tabView?.ticketSelected = false
             self.selectView?.isHidden = true
             self.overView?.isHidden = false
             break

@@ -732,13 +732,13 @@
                                         <rect key="frame" x="0.0" y="238" width="1000" height="562"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
-                                            <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PVt-NL-pKC">
+                                            <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PVt-NL-pKC" customClass="TabView" customModule="Timeline" customModuleProvider="target">
                                                 <rect key="frame" x="-7" y="-10" width="1014" height="580"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <font key="font" size="13" name="Helvetica"/>
                                                 <tabViewItems>
                                                     <tabViewItem label="Details" identifier="" id="DjX-iq-7in">
-                                                        <view key="view" id="Waf-vZ-TnU">
+                                                        <view key="view" ambiguous="YES" id="Waf-vZ-TnU">
                                                             <rect key="frame" x="10" y="33" width="994" height="534"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -1078,7 +1078,7 @@
                                                         </view>
                                                     </tabViewItem>
                                                     <tabViewItem label="Discussion" identifier="" id="Raw-tR-Zke">
-                                                        <view key="view" ambiguous="YES" id="jbJ-Bh-mei">
+                                                        <view key="view" id="jbJ-Bh-mei">
                                                             <rect key="frame" x="10" y="33" width="994" height="534"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -1251,6 +1251,7 @@
                         <outlet property="selectView" destination="I5g-u0-ked" id="4UG-S0-gWv"/>
                         <outlet property="sizeLabel" destination="wkG-A6-648" id="Abx-Rk-Nkg"/>
                         <outlet property="statusLabel" destination="TGd-5S-WR5" id="43I-Qq-sgp"/>
+                        <outlet property="tabView" destination="PVt-NL-pKC" id="RgF-CC-Vj3"/>
                         <outlet property="ticketNumberLabel" destination="Rsp-W2-pb2" id="BxU-cu-xtm"/>
                         <outlet property="typeLabel" destination="VQe-6b-DUf" id="OMX-ka-c5w"/>
                         <outlet property="webView" destination="nwM-ZB-YXE" id="fk8-fB-3tl"/>
