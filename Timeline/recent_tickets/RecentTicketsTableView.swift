@@ -31,39 +31,29 @@ class RecentTicketsTableView: NSTableView {
 extension RecentTicketsTableView: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
-        var image: NSImage?
-        var text: String = ""
-        var cellIdentifier: String = ""
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .long
         
-        // 1
-        guard let item = directoryItems?[row] else {
+        guard let comment = recentTickets?[row] else {
             return nil
         }
-        
-        // 2
-        if tableColumn == tableView.tableColumns[0] {
-            image = item.icon
-            text = item.name
-            cellIdentifier = CellIdentifiers.NameCell
-        } else if tableColumn == tableView.tableColumns[1] {
-            text = dateFormatter.string(from: item.date)
-            cellIdentifier = CellIdentifiers.DateCell
-        } else if tableColumn == tableView.tableColumns[2] {
-            text = item.isFolder ? "--" : sizeFormatter.string(fromByteCount: item.size)
-            cellIdentifier = CellIdentifiers.SizeCell
-        }
-        
-        // 3
-        if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView {
-            cell.textField?.stringValue = text
-            cell.imageView?.image = image ?? nil
+
+        if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ticketNumber"), owner: nil) as? RecentTicketCellView {
+            
+            cell.ticketNumberText?.stringValue = comment.ticketNumber
+            cell.priorityText?.stringValue = comment.priority
+            cell.sizeText?.stringValue = comment.size ?? ""
+            cell.typeText?.stringValue = comment.type
+            cell.titleText?.stringValue = comment.title
+            
             return cell
         }
         return nil
+    }
+    
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 100
     }
 }
 
@@ -71,4 +61,8 @@ extension RecentTicketsTableView: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return recentTickets?.count ?? 0
     }
+//
+//    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+//
+//    }
 }
