@@ -14,11 +14,7 @@ class MyOutlineView: NSOutlineView {
     
     func initialize(comments: [Comment]) {
         self.comments = comments
-//        
-//        var childrenWithEmpty = [Comment]()
-//        self.comments.forEach { comment in
-//            childrenWithEmpty.append(comment.addEmptyChild())
-//        }
+
         self.comments = self.comments.map { comment -> Comment in
             var comment2 = comment
             comment2.children.append(Comment(commentId: "", author: "", content: "", createdAt: "", children: [], parentId: comment.commentId))
@@ -28,8 +24,9 @@ class MyOutlineView: NSOutlineView {
         
         self.delegate = self
         self.dataSource = self
-    
+        
         self.reloadData()
+        self.expandItem(nil, expandChildren: true)
     }
 
     override func draw(_ dirtyRect: NSRect) {
@@ -135,5 +132,7 @@ extension MyOutlineView: NSOutlineViewDataSource {
         let newHeight = fakefield.cell!.cellSize(forBounds: NSMakeRect(CGFloat(0.0), CGFloat(0.0), outlineView.tableColumns[0].width, CGFloat(Float.greatestFiniteMagnitude))).height
         return newHeight
     }
+    
+    
    
 }

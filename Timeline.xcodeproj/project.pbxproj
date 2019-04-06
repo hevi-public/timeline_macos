@@ -119,7 +119,7 @@
 				D7A16960225909D4001CFA99 /* recent_updates */,
 				D7A169302258CCF3001CFA99 /* common */,
 				D7C073932258AEBA00350B69 /* recent_tickets */,
-				D7C07355224AABAE00350B69 /* outlineview */,
+				D7C07355224AABAE00350B69 /* comments */,
 				D71066E12233B5B1005A38F1 /* static */,
 				D7106568223318D5005A38F1 /* webview */,
 				D71063CD2233165A005A38F1 /* AppDelegate.swift */,
@@ -176,13 +176,13 @@
 			path = recent_updates;
 			sourceTree = "<group>";
 		};
-		D7C07355224AABAE00350B69 /* outlineview */ = {
+		D7C07355224AABAE00350B69 /* comments */ = {
 			isa = PBXGroup;
 			children = (
 				D7C07356224AABD700350B69 /* MyOutlineView.swift */,
 				D7C07391224D616500350B69 /* CommentTextField.swift */,
 			);
-			path = outlineview;
+			path = comments;
 			sourceTree = "<group>";
 		};
 		D7C073932258AEBA00350B69 /* recent_tickets */ = {
