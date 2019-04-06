@@ -36,17 +36,11 @@ class TabView: NSTabView {
 
 extension TabView: NSTabViewDelegate {
     
-//    func tabViewDidChangeNumberOfTabViewItems(_ tabView: NSTabView) {
-//        print("did")
-//    }
-    
     func tabView(_ tabView: NSTabView, shouldSelect tabViewItem: NSTabViewItem?) -> Bool {
         if let tabViewItem = tabViewItem {
             let index = tabView.indexOfTabViewItem(tabViewItem)
             
-            if index > 0 && ticketSelected ?? false {
-                return true
-            } else if index == 0 {
+            if index > 0 && (ticketSelected ?? false) || index == 0 {
                 return true
             }
             return false
