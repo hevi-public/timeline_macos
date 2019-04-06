@@ -816,8 +816,8 @@
                                                                                                             </textField>
                                                                                                             <textField identifier="titleText" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fqf-St-dtO">
                                                                                                                 <rect key="frame" x="11" y="10" width="378" height="57"/>
-                                                                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Label" id="Y7k-MK-NOf">
+                                                                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                                                                                <textFieldCell key="cell" alignment="left" title="Label" id="Y7k-MK-NOf">
                                                                                                                     <font key="font" metaFont="system" size="17"/>
                                                                                                                     <color key="textColor" red="0.8784313725490196" green="0.90980392156862744" blue="0.9137254901960784" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
