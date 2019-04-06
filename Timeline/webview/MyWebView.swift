@@ -104,7 +104,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                             return ticketA.updatedAt > ticketB.updatedAt
                         })
                         
-                        self.recentTicketsView?.initialize(recentTickets: recentTickets)
+                        self.recentTicketsView?.initialize(recentTickets: recentTickets, webView: self)
                         
                         self.tickets = ticketsData.tickets
                         
@@ -179,6 +179,15 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         } catch {
             print("Problem")
         }
+    }
+    
+    public func selectTicket(ticket: Ticket) {
+        let script = NSString(format: "selectTicket(%@);", String(ticket.id))
+        self.evaluateJavaScript(script as String, completionHandler: { (result, error) in
+            if error != nil {
+                print("error: " + (error! as NSError).debugDescription)
+            }
+        })
     }
     
     private func clearText(textView: NSTextView) {

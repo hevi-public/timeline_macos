@@ -11,6 +11,7 @@ import Cocoa
 class RecentTicketsTableView: NSTableView {
     
     var recentTickets: [Ticket]?
+    var webView: MyWebView?
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -18,9 +19,10 @@ class RecentTicketsTableView: NSTableView {
         // Drawing code here.
     }
     
-    func initialize(recentTickets: [Ticket]) {
+    func initialize(recentTickets: [Ticket], webView: MyWebView) {
         
         self.recentTickets = recentTickets
+        self.webView = webView
         
         self.delegate = self
         self.dataSource = self
@@ -54,6 +56,16 @@ extension RecentTicketsTableView: NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         return 100
+    }
+    
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        let tableView = notification.object as! RecentTicketsTableView
+        let selectedRow = tableView.selectedRow
+        if let ticket = recentTickets?[selectedRow] {
+            webView?.selectTicket(ticket: ticket)
+        }
+        
+        
     }
 }
 

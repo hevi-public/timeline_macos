@@ -797,7 +797,7 @@
                                                                                                                 </textFieldCell>
                                                                                                             </textField>
                                                                                                             <textField identifier="priorityText" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kSu-mX-Igv">
-                                                                                                                <rect key="frame" x="400" y="8" width="36" height="15"/>
+                                                                                                                <rect key="frame" x="400" y="42" width="36" height="15"/>
                                                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Label" id="hZ8-n2-c2n">
                                                                                                                     <font key="font" size="12" name="Helvetica-Bold"/>
@@ -815,16 +815,16 @@
                                                                                                                 </textFieldCell>
                                                                                                             </textField>
                                                                                                             <textField identifier="titleText" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fqf-St-dtO">
-                                                                                                                <rect key="frame" x="11" y="33" width="425" height="34"/>
+                                                                                                                <rect key="frame" x="11" y="10" width="378" height="57"/>
                                                                                                                 <autoresizingMask key="autoresizingMask"/>
-                                                                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Label" id="Y7k-MK-NOf">
+                                                                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Label" id="Y7k-MK-NOf">
                                                                                                                     <font key="font" metaFont="system" size="17"/>
                                                                                                                     <color key="textColor" red="0.8784313725490196" green="0.90980392156862744" blue="0.9137254901960784" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                                                 </textFieldCell>
                                                                                                             </textField>
                                                                                                             <textField identifier="sizeText" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CZi-2Y-MKJ">
-                                                                                                                <rect key="frame" x="11" y="8" width="36" height="15"/>
+                                                                                                                <rect key="frame" x="400" y="10" width="36" height="15"/>
                                                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Label" id="Zwm-Ex-SLq">
                                                                                                                     <font key="font" size="12" name="Helvetica-Bold"/>
