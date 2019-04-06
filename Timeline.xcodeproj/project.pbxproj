@@ -18,6 +18,7 @@
 		D71066E22233B5B1005A38F1 /* static in Resources */ = {isa = PBXBuildFile; fileRef = D71066E12233B5B1005A38F1 /* static */; };
 		D7C07357224AABD700350B69 /* MyOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C07356224AABD700350B69 /* MyOutlineView.swift */; };
 		D7C07392224D616600350B69 /* CommentTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C07391224D616500350B69 /* CommentTextField.swift */; };
+		D7C073952258AEE700350B69 /* RecentTicketsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C073942258AEE700350B69 /* RecentTicketsTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		D71066E12233B5B1005A38F1 /* static */ = {isa = PBXFileReference; lastKnownFileType = folder; path = static; sourceTree = "<group>"; };
 		D7C07356224AABD700350B69 /* MyOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOutlineView.swift; sourceTree = "<group>"; };
 		D7C07391224D616500350B69 /* CommentTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTextField.swift; sourceTree = "<group>"; };
+		D7C073942258AEE700350B69 /* RecentTicketsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTicketsTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		D71063CC2233165A005A38F1 /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
+				D7C073932258AEBA00350B69 /* recent_tickets */,
 				D7C07355224AABAE00350B69 /* outlineview */,
 				D71066E12233B5B1005A38F1 /* static */,
 				D7106568223318D5005A38F1 /* webview */,
@@ -153,6 +156,14 @@
 				D7C07391224D616500350B69 /* CommentTextField.swift */,
 			);
 			path = outlineview;
+			sourceTree = "<group>";
+		};
+		D7C073932258AEBA00350B69 /* recent_tickets */ = {
+			isa = PBXGroup;
+			children = (
+				D7C073942258AEE700350B69 /* RecentTicketsTableView.swift */,
+			);
+			path = recent_tickets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7C073952258AEE700350B69 /* RecentTicketsTableView.swift in Sources */,
 				D71063D02233165A005A38F1 /* ViewController.swift in Sources */,
 				D710656A22331D6B005A38F1 /* MyWebView.swift in Sources */,
 				D71063D32233165A005A38F1 /* Timeline.xcdatamodeld in Sources */,

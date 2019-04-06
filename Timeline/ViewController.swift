@@ -27,7 +27,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var overView: NSView!
     @IBOutlet weak var selectView: NSView!
     
-    @IBOutlet weak var recentTicketsView: NSStackView!
+    @IBOutlet weak var recentTicketsView: RecentTicketsTableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
