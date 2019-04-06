@@ -137,8 +137,11 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                     
                     
                         if let descriptionTextView = descriptionTextView {
+                            descriptionTextView.font = NSFont(descriptor: NSFontDescriptor(name: "Helvetica", size: 16), size: 16)
+                            descriptionTextView.textColor = NSColor.init(rgb: 0xE0E8E9)
+                            
                             self.clearText(textView: descriptionTextView)
-                            descriptionTextView.insertText(description)
+                            descriptionTextView.insertText(ticket.description)
                         }
                     
                         self.selectView?.isHidden = false

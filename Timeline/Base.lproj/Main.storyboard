@@ -743,7 +743,7 @@
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T5N-4X-DbT" userLabel="Overview">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="1000" height="550"/>
+                                                                    <rect key="frame" x="1000" y="0.0" width="1000" height="550"/>
                                                                     <subviews>
                                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="15C-sB-4q6">
                                                                             <rect key="frame" x="18" y="513" width="143" height="27"/>
@@ -866,7 +866,7 @@
                                                                     </constraints>
                                                                 </customView>
                                                                 <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I5g-u0-ked">
-                                                                    <rect key="frame" x="1000" y="0.0" width="1000" height="550"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="1000" height="550"/>
                                                                     <subviews>
                                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="voo-2h-Y9Y">
                                                                             <rect key="frame" x="881" y="437" width="110" height="55"/>
@@ -964,12 +964,22 @@
                                                                                         <rect key="frame" x="0.0" y="0.0" width="696" height="463"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                        <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <size key="minSize" width="696" height="463"/>
                                                                                         <size key="maxSize" width="729" height="10000000"/>
+                                                                                        <attributedString key="textStorage">
+                                                                                            <fragment content="text">
+                                                                                                <attributes>
+                                                                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                                                    <font key="NSFont" size="18" name="Helvetica"/>
+                                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                                </attributes>
+                                                                                            </fragment>
+                                                                                        </attributedString>
                                                                                         <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                                     </textView>
                                                                                 </subviews>
+                                                                                <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </clipView>
                                                                             <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="taY-45-ZaL">
                                                                                 <rect key="frame" x="680" y="0.0" width="16" height="463"/>
@@ -985,15 +995,10 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="T5N-4X-DbT" firstAttribute="leading" secondItem="Waf-vZ-TnU" secondAttribute="leading" id="18h-I4-BRO"/>
-                                                                <constraint firstItem="I5g-u0-ked" firstAttribute="leading" secondItem="T5N-4X-DbT" secondAttribute="trailing" id="Irb-fO-Uu4"/>
-                                                                <constraint firstAttribute="trailing" secondItem="I5g-u0-ked" secondAttribute="trailing" constant="-1000" id="O6w-xm-WZp"/>
                                                                 <constraint firstItem="I5g-u0-ked" firstAttribute="top" secondItem="Waf-vZ-TnU" secondAttribute="top" id="aEv-fr-bLc"/>
                                                                 <constraint firstItem="T5N-4X-DbT" firstAttribute="top" secondItem="Waf-vZ-TnU" secondAttribute="top" id="e9x-Fz-ApZ"/>
                                                                 <constraint firstItem="I5g-u0-ked" firstAttribute="top" secondItem="Waf-vZ-TnU" secondAttribute="top" id="f6L-b7-R9n"/>
-                                                                <constraint firstItem="I5g-u0-ked" firstAttribute="leading" secondItem="T5N-4X-DbT" secondAttribute="trailing" id="gHy-yR-IOq"/>
                                                                 <constraint firstAttribute="bottom" secondItem="I5g-u0-ked" secondAttribute="bottom" id="hji-14-P3D"/>
-                                                                <constraint firstAttribute="trailing" secondItem="I5g-u0-ked" secondAttribute="trailing" constant="-1000" id="rNh-7Q-j9m"/>
-                                                                <constraint firstItem="I5g-u0-ked" firstAttribute="leading" secondItem="T5N-4X-DbT" secondAttribute="trailing" id="rSe-UE-9Vt"/>
                                                                 <constraint firstAttribute="bottom" secondItem="T5N-4X-DbT" secondAttribute="bottom" id="sIe-zP-fQv"/>
                                                                 <constraint firstAttribute="bottom" secondItem="I5g-u0-ked" secondAttribute="bottom" id="zbg-YD-NQw"/>
                                                             </constraints>
