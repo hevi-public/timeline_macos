@@ -17,6 +17,8 @@
 		D710656A22331D6B005A38F1 /* MyWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D710656922331D6B005A38F1 /* MyWebView.swift */; };
 		D71066E22233B5B1005A38F1 /* static in Resources */ = {isa = PBXBuildFile; fileRef = D71066E12233B5B1005A38F1 /* static */; };
 		D7A169322258CD3D001CFA99 /* DisplayString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A169312258CD3D001CFA99 /* DisplayString.swift */; };
+		D7A1696222590A0F001CFA99 /* RecentUpdatesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1696122590A0F001CFA99 /* RecentUpdatesTableView.swift */; };
+		D7A1696422590A27001CFA99 /* RecentUpdatesCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1696322590A27001CFA99 /* RecentUpdatesCellView.swift */; };
 		D7C07357224AABD700350B69 /* MyOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C07356224AABD700350B69 /* MyOutlineView.swift */; };
 		D7C07392224D616600350B69 /* CommentTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C07391224D616500350B69 /* CommentTextField.swift */; };
 		D7C073952258AEE700350B69 /* RecentTicketsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C073942258AEE700350B69 /* RecentTicketsTableView.swift */; };
@@ -58,6 +60,8 @@
 		D710656922331D6B005A38F1 /* MyWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWebView.swift; sourceTree = "<group>"; };
 		D71066E12233B5B1005A38F1 /* static */ = {isa = PBXFileReference; lastKnownFileType = folder; path = static; sourceTree = "<group>"; };
 		D7A169312258CD3D001CFA99 /* DisplayString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayString.swift; sourceTree = "<group>"; };
+		D7A1696122590A0F001CFA99 /* RecentUpdatesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentUpdatesTableView.swift; sourceTree = "<group>"; };
+		D7A1696322590A27001CFA99 /* RecentUpdatesCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentUpdatesCellView.swift; sourceTree = "<group>"; };
 		D7C07356224AABD700350B69 /* MyOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOutlineView.swift; sourceTree = "<group>"; };
 		D7C07391224D616500350B69 /* CommentTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTextField.swift; sourceTree = "<group>"; };
 		D7C073942258AEE700350B69 /* RecentTicketsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTicketsTableView.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 		D71063CC2233165A005A38F1 /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
+				D7A16960225909D4001CFA99 /* recent_updates */,
 				D7A169302258CCF3001CFA99 /* common */,
 				D7C073932258AEBA00350B69 /* recent_tickets */,
 				D7C07355224AABAE00350B69 /* outlineview */,
@@ -160,6 +165,15 @@
 				D7A169312258CD3D001CFA99 /* DisplayString.swift */,
 			);
 			path = common;
+			sourceTree = "<group>";
+		};
+		D7A16960225909D4001CFA99 /* recent_updates */ = {
+			isa = PBXGroup;
+			children = (
+				D7A1696122590A0F001CFA99 /* RecentUpdatesTableView.swift */,
+				D7A1696322590A27001CFA99 /* RecentUpdatesCellView.swift */,
+			);
+			path = recent_updates;
 			sourceTree = "<group>";
 		};
 		D7C07355224AABAE00350B69 /* outlineview */ = {
@@ -321,8 +335,10 @@
 				D71063D02233165A005A38F1 /* ViewController.swift in Sources */,
 				D710656A22331D6B005A38F1 /* MyWebView.swift in Sources */,
 				D71063D32233165A005A38F1 /* Timeline.xcdatamodeld in Sources */,
+				D7A1696222590A0F001CFA99 /* RecentUpdatesTableView.swift in Sources */,
 				D71063CE2233165A005A38F1 /* AppDelegate.swift in Sources */,
 				D7C073972258BD3100350B69 /* RecentTicketCellView.swift in Sources */,
+				D7A1696422590A27001CFA99 /* RecentUpdatesCellView.swift in Sources */,
 				D7C07357224AABD700350B69 /* MyOutlineView.swift in Sources */,
 				D7C07392224D616600350B69 /* CommentTextField.swift in Sources */,
 			);

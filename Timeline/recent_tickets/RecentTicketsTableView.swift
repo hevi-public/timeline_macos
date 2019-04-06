@@ -26,6 +26,8 @@ class RecentTicketsTableView: NSTableView {
         
         self.delegate = self
         self.dataSource = self
+        
+        self.reloadData()
     }
     
 }

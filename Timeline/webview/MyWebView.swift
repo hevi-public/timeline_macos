@@ -24,6 +24,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
     var overView: NSView?
     var selectView: NSView?
     var recentTicketsView: RecentTicketsTableView?
+    var recentUpdatesView: RecentUpdatesTableView?
     
     var tickets = [Ticket]()
     var recentlyUpdatedTickets = [Ticket]()
@@ -47,6 +48,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                            overView: NSView,
                            selectView: NSView,
                            recentTicketsView: RecentTicketsTableView,
+                           recentUpdatesView: RecentUpdatesTableView,
                            outlineView: MyOutlineView) {
         
         self.overView = overView
@@ -77,6 +79,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         
         self.descriptionTextView = descriptionTextView
         self.recentTicketsView = recentTicketsView
+        self.recentUpdatesView = recentUpdatesView
         
         self.outlineView = outlineView
     }
@@ -104,7 +107,13 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                             return ticketA.updatedAt > ticketB.updatedAt
                         })
                         
+                        self.recentUpdatesView?.initialize(recentUpdates: ticketsData.recentUpdates)
+                        
+                    
                         self.recentTicketsView?.initialize(recentTickets: recentTickets, webView: self)
+                        
+                        
+        
                         
                         self.tickets = ticketsData.tickets
                         
@@ -202,6 +211,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
 struct TicketResponse: Decodable {
     var tickets: [Ticket]
     var overview: Overview
+    var recentUpdates: [Update]
 }
 
 struct Ticket: Codable {

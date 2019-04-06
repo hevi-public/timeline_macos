@@ -28,6 +28,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var selectView: NSView!
     
     @IBOutlet weak var recentTicketsView: RecentTicketsTableView!
+    @IBOutlet weak var recentUpdatesView: RecentUpdatesTableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,7 @@ class ViewController: NSViewController {
                            overView: self.overView,
                            selectView: self.selectView,
                            recentTicketsView: self.recentTicketsView,
+                           recentUpdatesView: self.recentUpdatesView,
                            outlineView: self.outlineView)
     }
 
