@@ -738,7 +738,7 @@
                                                 <font key="font" size="13" name="Helvetica"/>
                                                 <tabViewItems>
                                                     <tabViewItem label="Details" identifier="" id="DjX-iq-7in">
-                                                        <view key="view" ambiguous="YES" id="Waf-vZ-TnU">
+                                                        <view key="view" id="Waf-vZ-TnU">
                                                             <rect key="frame" x="10" y="33" width="994" height="534"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -1221,9 +1221,44 @@
                                                         </view>
                                                     </tabViewItem>
                                                     <tabViewItem label="Notes" identifier="" id="Kes-jC-76A" userLabel="Notes">
-                                                        <view key="view" id="p2y-YZ-ehz">
+                                                        <view key="view" ambiguous="YES" id="p2y-YZ-ehz">
                                                             <rect key="frame" x="10" y="33" width="994" height="534"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <scrollView appearanceType="aqua" fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m45-Su-6v1">
+                                                                    <rect key="frame" x="17" y="17" width="507" height="465"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="AvW-j3-s3D">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="507" height="465"/>
+                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                        <subviews>
+                                                                            <textView ambiguous="YES" verticallyResizable="YES" usesFontPanel="YES" usesInspectorBar="YES" findStyle="bar" allowsDocumentBackgroundColorChange="YES" usesRuler="YES" smartInsertDelete="YES" id="0g4-BD-HdC">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="507" height="465"/>
+                                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                <color key="textColor" red="0.75686274509999996" green="0.81960784310000001" blue="0.83137254900000002" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <size key="minSize" width="507" height="465"/>
+                                                                                <size key="maxSize" width="643" height="10000000"/>
+                                                                                <attributedString key="textStorage">
+                                                                                    <fragment content="Notes">
+                                                                                        <attributes>
+                                                                                            <color key="NSColor" red="0.75686274509999996" green="0.81960784310000001" blue="0.83137254900000002" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                            <font key="NSFont" size="15" name="Helvetica"/>
+                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                        </attributes>
+                                                                                    </fragment>
+                                                                                </attributedString>
+                                                                                <color key="insertionPointColor" red="0.75686274509999996" green="0.81960784310000001" blue="0.83137254900000002" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            </textView>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </clipView>
+                                                                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="g5r-Ji-E0p">
+                                                                        <rect key="frame" x="491" y="0.0" width="16" height="465"/>
+                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                    </scroller>
+                                                                </scrollView>
+                                                            </subviews>
                                                         </view>
                                                     </tabViewItem>
                                                 </tabViewItems>
