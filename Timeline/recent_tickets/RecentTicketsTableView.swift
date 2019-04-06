@@ -42,9 +42,9 @@ extension RecentTicketsTableView: NSTableViewDelegate {
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ticketNumber"), owner: nil) as? RecentTicketCellView {
             
             cell.ticketNumberText?.stringValue = comment.ticketNumber
-            cell.priorityText?.stringValue = comment.priority
-            cell.sizeText?.stringValue = comment.size ?? ""
-            cell.typeText?.stringValue = comment.type
+            cell.priorityText?.attributedStringValue = DisplayString.getPriorityDisplayString(comment.priority)
+            cell.sizeText?.attributedStringValue = DisplayString.getSizeDisplayString(comment.size ?? "")
+            cell.typeText?.attributedStringValue = DisplayString.getTypeDisplayString(comment.type)
             cell.titleText?.stringValue = comment.title
             
             return cell
