@@ -130,7 +130,7 @@ extension MyOutlineView: NSOutlineViewDataSource {
 
         let fakefield = NSTextField()
         fakefield.stringValue = comment.content
-        fakefield.font = NSFont(name: "Helvetica", size: 13)
+        fakefield.font = NSFont(name: "Helvetica", size: 15)
         
         let newHeight = fakefield.cell!.cellSize(forBounds: NSMakeRect(CGFloat(0.0), CGFloat(0.0), outlineView.tableColumns[0].width, CGFloat(Float.greatestFiniteMagnitude))).height
         return newHeight
