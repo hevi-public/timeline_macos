@@ -26,12 +26,15 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
     var recentTicketsView: RecentTicketsTableView?
     var recentUpdatesView: RecentUpdatesTableView?
     var tabView: TabView?
+    var todoTableView: TodoTableView?
     
     var tickets = [Ticket]()
     var recentlyUpdatedTickets = [Ticket]()
     var recentComments = [Comment]()
     
     var selectedTicket: Ticket? = nil
+    
+    var selectedTicketFromRecents = false
     
     
     override func draw(_ dirtyRect: NSRect) {
@@ -53,7 +56,8 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                            recentTicketsView: RecentTicketsTableView,
                            recentUpdatesView: RecentUpdatesTableView,
                            outlineView: MyOutlineView,
-                           tabView: TabView) {
+                           tabView: TabView,
+                           todoTableView: TodoTableView) {
         
         self.overView = overView
         self.selectView = selectView
@@ -130,45 +134,50 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
             }.resume()
             break
         case "selectHandler":
-                do {
-                    let id = (message.body as! Int)
-                
-                    let ticket = tickets.filter { filteredTicket -> Bool in
-                        filteredTicket.id == id
-                    }.first
-                
-                    if let ticket = ticket {
-                        
-                        self.selectedTicket = ticket
-                        self.tabView?.ticketSelected = true
+            if self.selectedTicketFromRecents {
+                self.selectedTicketFromRecents = false
+                break
+            }
+            
+            do {
+                let id = (message.body as! Int)
+            
+                let ticket = tickets.filter { filteredTicket -> Bool in
+                    filteredTicket.id == id
+                }.first
+            
+                if let ticket = ticket {
                     
-                        let typeDisplayString = DisplayString.getTypeDisplayString(ticket.type)
+                    self.selectedTicket = ticket
+                    self.tabView?.ticketSelected = true
+                
+                    let typeDisplayString = DisplayString.getTypeDisplayString(ticket.type)
 
-                        ticketNumberLabel?.stringValue = ticket.ticketNumber
-                        typeLabel?.attributedStringValue = typeDisplayString
-                        priorityLabel?.stringValue = ticket.priority
-                        statusLabel?.stringValue = ticket.status
-                        assigneeLabel?.stringValue = ticket.assignee
-                        reporterLabel?.stringValue = ticket.reporter
-                        sizeLabel?.stringValue = ticket.size ?? "0"
-                    
-                    
-                        if let descriptionTextView = descriptionTextView {
-                            descriptionTextView.font = NSFont(descriptor: NSFontDescriptor(name: "Helvetica", size: 16), size: 16)
-                            descriptionTextView.textColor = NSColor.init(rgb: 0xE0E8E9)
-                            
-                            self.clearText(textView: descriptionTextView)
-                            descriptionTextView.insertText(ticket.description)
-                        }
-                    
-                        self.selectView?.isHidden = false
-                        self.overView?.isHidden = true
-                    
-                        outlineView?.initialize(comments: ticket.comments)
+                    ticketNumberLabel?.stringValue = ticket.ticketNumber
+                    typeLabel?.attributedStringValue = typeDisplayString
+                    priorityLabel?.stringValue = ticket.priority
+                    statusLabel?.stringValue = ticket.status
+                    assigneeLabel?.stringValue = ticket.assignee
+                    reporterLabel?.stringValue = ticket.reporter
+                    sizeLabel?.stringValue = ticket.size ?? "0"
+                
+                
+                    if let descriptionTextView = descriptionTextView {
+                        descriptionTextView.font = NSFont(descriptor: NSFontDescriptor(name: "Helvetica", size: 16), size: 16)
+                        descriptionTextView.textColor = NSColor.init(rgb: 0xE0E8E9)
+                        
+                        self.clearText(textView: descriptionTextView)
+                        descriptionTextView.insertText(ticket.description)
                     }
-                } catch let error {
-                    print(error)
+                
+                    self.selectView?.isHidden = false
+                    self.overView?.isHidden = true
+                
+                    outlineView?.initialize(comments: ticket.comments)
                 }
+            } catch let error {
+                print(error)
+            }
             break
         case "deselectHandler":
             self.selectedTicket = nil
@@ -204,6 +213,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
     }
     
     public func selectTicket(ticket: Ticket) {
+        self.selectedTicketFromRecents = true
         let script = NSString(format: "selectTicket(%@);", String(ticket.id))
         self.evaluateJavaScript(script as String, completionHandler: { (result, error) in
             if error != nil {

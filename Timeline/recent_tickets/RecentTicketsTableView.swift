@@ -75,8 +75,4 @@ extension RecentTicketsTableView: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return recentTickets?.count ?? 0
     }
-//
-//    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-//
-//    }
 }
