@@ -11,6 +11,7 @@ import Cocoa
 class TodoTableCellView: NSTableCellView {
 
     @IBOutlet weak var checkBox: NSButton!
+    @IBOutlet weak var label: NSTextField!
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)

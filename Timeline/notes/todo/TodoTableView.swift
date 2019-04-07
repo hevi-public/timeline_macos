@@ -42,11 +42,15 @@ extension TodoTableView: NSTableViewDelegate {
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "todoTableCell"), owner: nil) as? TodoTableCellView {
             
             cell.checkBox?.state = todo.done ? NSButton.StateValue.on : NSButton.StateValue.off
-            cell.checkBox?.title = todo.content
+            cell.label?.stringValue = todo.content
             
             return cell
         }
         return nil
+    }
+    
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 80
     }
 }
 

@@ -1271,14 +1271,14 @@
                                                                             <rect key="frame" x="711" y="0.0" width="286" height="551"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <subviews>
-                                                                                <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qg3-gB-ckc">
+                                                                                <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="82" horizontalPageScroll="10" verticalLineScroll="82" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qg3-gB-ckc">
                                                                                     <rect key="frame" x="0.0" y="94" width="286" height="437"/>
                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                     <clipView key="contentView" ambiguous="YES" id="XKm-FM-lcC">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="286" height="437"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
-                                                                                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="Bmy-N5-UtV" customClass="TodoTableView" customModule="Timeline" customModuleProvider="target">
+                                                                                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="80" rowSizeStyle="automatic" viewBased="YES" id="Bmy-N5-UtV" customClass="TodoTableView" customModule="Timeline" customModuleProvider="target">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="286" height="437"/>
                                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -1299,20 +1299,34 @@
                                                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                                         <prototypeCellViews>
                                                                                                             <tableCellView identifier="todoTableCell" id="IKt-Aq-JsI" customClass="TodoTableCellView" customModule="Timeline" customModuleProvider="target">
-                                                                                                                <rect key="frame" x="1" y="1" width="283" height="17"/>
+                                                                                                                <rect key="frame" x="1" y="1" width="283" height="80"/>
                                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                                                 <subviews>
                                                                                                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="add-sw-uDn">
-                                                                                                                        <rect key="frame" x="1" y="0.0" width="281" height="18"/>
+                                                                                                                        <rect key="frame" x="1" y="31" width="22" height="18"/>
                                                                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                                                                        <buttonCell key="cell" type="check" title="Check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="2jl-ee-oSn">
+                                                                                                                        <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="2jl-ee-oSn">
                                                                                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                                                                            <font key="font" metaFont="system"/>
+                                                                                                                            <font key="font" size="13" name="Helvetica"/>
                                                                                                                         </buttonCell>
                                                                                                                     </button>
+                                                                                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3OS-y4-NuS">
+                                                                                                                        <rect key="frame" x="25" y="3" width="257" height="74"/>
+                                                                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                                                                        <textFieldCell key="cell" selectable="YES" alignment="left" title="Label" id="DHv-UW-jhl">
+                                                                                                                            <font key="font" size="13" name="Helvetica"/>
+                                                                                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                                                        </textFieldCell>
+                                                                                                                    </textField>
+                                                                                                                    <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="43X-i1-yjw">
+                                                                                                                        <rect key="frame" x="3" y="1" width="277" height="5"/>
+                                                                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                                                    </box>
                                                                                                                 </subviews>
                                                                                                                 <connections>
                                                                                                                     <outlet property="checkBox" destination="add-sw-uDn" id="sa2-Sa-fCT"/>
+                                                                                                                    <outlet property="label" destination="3OS-y4-NuS" id="H4C-Ca-D14"/>
                                                                                                                 </connections>
                                                                                                             </tableCellView>
                                                                                                         </prototypeCellViews>
