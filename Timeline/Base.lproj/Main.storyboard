@@ -1284,7 +1284,7 @@
                                                                                         </textFieldCell>
                                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                         <prototypeCellViews>
-                                                                                            <tableCellView id="IKt-Aq-JsI">
+                                                                                            <tableCellView identifier="todoTableCell" id="IKt-Aq-JsI" customClass="TodoTableCellView" customModule="Timeline" customModuleProvider="target">
                                                                                                 <rect key="frame" x="1" y="1" width="440" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                                 <subviews>
@@ -1297,6 +1297,9 @@
                                                                                                         </buttonCell>
                                                                                                     </button>
                                                                                                 </subviews>
+                                                                                                <connections>
+                                                                                                    <outlet property="checkBox" destination="add-sw-uDn" id="sa2-Sa-fCT"/>
+                                                                                                </connections>
                                                                                             </tableCellView>
                                                                                         </prototypeCellViews>
                                                                                     </tableColumn>

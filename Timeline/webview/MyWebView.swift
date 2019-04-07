@@ -91,6 +91,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         self.tabView = tabView
         
         self.outlineView = outlineView
+        self.todoTableView = todoTableView
     }
 
     func userContentController(_ userContentConvarller: WKUserContentController, didReceive message: WKScriptMessage) {
@@ -120,9 +121,6 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                         
                     
                         self.recentTicketsView?.initialize(recentTickets: recentTickets, webView: self)
-                        
-                        
-        
                         
                         self.tickets = ticketsData.tickets
                         
@@ -173,7 +171,8 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                     self.selectView?.isHidden = false
                     self.overView?.isHidden = true
                 
-                    outlineView?.initialize(comments: ticket.comments)
+                    self.outlineView?.initialize(comments: ticket.comments)
+                    self.todoTableView?.initialize(todos: ticket.todos)
                 }
             } catch let error {
                 print(error)
@@ -248,6 +247,7 @@ struct Ticket: Codable {
     var assignee: String
     var reporter: String
     var comments: [Comment]
+    var todos: [Todo]
     var attachments: [String]
     var size: String?
     var start: String
@@ -266,6 +266,7 @@ struct Ticket: Codable {
         case assignee = "assignee"
         case reporter = "reporter"
         case comments = "comments"
+        case todos = "todos"
         case attachments = "attachments"
         case size = "size"
         case start = "start"
@@ -286,6 +287,7 @@ struct Ticket: Codable {
                 "assignee": self.assignee,
                 "reporter": self.reporter,
                 "comments": self.comments.description,
+                "todos": self.todos.description,
                 "attachments": self.attachments,
                 "size": self.size as Any,
                 "start": self.start,

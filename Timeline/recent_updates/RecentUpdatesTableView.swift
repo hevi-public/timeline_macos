@@ -51,7 +51,6 @@ extension RecentUpdatesTableView: NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         return 70
-        
     }
     
 //    func tableViewSelectionDidChange(_ notification: Notification) {

@@ -21,6 +21,7 @@
 		D7A1696422590A27001CFA99 /* RecentUpdatesCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1696322590A27001CFA99 /* RecentUpdatesCellView.swift */; };
 		D7A16967225933C0001CFA99 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A16966225933C0001CFA99 /* TabView.swift */; };
 		D7A1696B225949BC001CFA99 /* TodoTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1696A225949BC001CFA99 /* TodoTableView.swift */; };
+		D7A1696D225A0079001CFA99 /* TodoTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1696C225A0079001CFA99 /* TodoTableCellView.swift */; };
 		D7C07357224AABD700350B69 /* MyOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C07356224AABD700350B69 /* MyOutlineView.swift */; };
 		D7C07392224D616600350B69 /* CommentTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C07391224D616500350B69 /* CommentTextField.swift */; };
 		D7C073952258AEE700350B69 /* RecentTicketsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C073942258AEE700350B69 /* RecentTicketsTableView.swift */; };
@@ -66,6 +67,7 @@
 		D7A1696322590A27001CFA99 /* RecentUpdatesCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentUpdatesCellView.swift; sourceTree = "<group>"; };
 		D7A16966225933C0001CFA99 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		D7A1696A225949BC001CFA99 /* TodoTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableView.swift; sourceTree = "<group>"; };
+		D7A1696C225A0079001CFA99 /* TodoTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableCellView.swift; sourceTree = "<group>"; };
 		D7C07356224AABD700350B69 /* MyOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOutlineView.swift; sourceTree = "<group>"; };
 		D7C07391224D616500350B69 /* CommentTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTextField.swift; sourceTree = "<group>"; };
 		D7C073942258AEE700350B69 /* RecentTicketsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTicketsTableView.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				D7A1696A225949BC001CFA99 /* TodoTableView.swift */,
+				D7A1696C225A0079001CFA99 /* TodoTableCellView.swift */,
 			);
 			path = todo;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				D7A1696B225949BC001CFA99 /* TodoTableView.swift in Sources */,
 				D7A1696422590A27001CFA99 /* RecentUpdatesCellView.swift in Sources */,
 				D7C07357224AABD700350B69 /* MyOutlineView.swift in Sources */,
+				D7A1696D225A0079001CFA99 /* TodoTableCellView.swift in Sources */,
 				D7A16967225933C0001CFA99 /* TabView.swift in Sources */,
 				D7C07392224D616600350B69 /* CommentTextField.swift in Sources */,
 			);
