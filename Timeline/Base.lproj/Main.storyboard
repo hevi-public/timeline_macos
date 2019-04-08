@@ -1088,7 +1088,7 @@
                                                                                     <subviews>
                                                                                         <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="82" horizontalPageScroll="10" verticalLineScroll="82" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNY-aF-TbI" userLabel="Scroll View">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="240" height="482"/>
-                                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                                                                             <clipView key="contentView" ambiguous="YES" id="ZU0-dZ-gYW">
                                                                                                 <rect key="frame" x="1" y="1" width="238" height="480"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
