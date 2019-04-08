@@ -737,7 +737,7 @@
                                                 <font key="font" size="13" name="Helvetica"/>
                                                 <tabViewItems>
                                                     <tabViewItem label="Details" identifier="" id="DjX-iq-7in">
-                                                        <view key="view" id="Waf-vZ-TnU">
+                                                        <view key="view" ambiguous="YES" id="Waf-vZ-TnU">
                                                             <rect key="frame" x="10" y="33" width="994" height="534"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -889,7 +889,7 @@
                                                                                                         <subviews>
                                                                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VT3-ci-zsc">
                                                                                                                 <rect key="frame" x="346" y="3" width="152" height="17"/>
-                                                                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                                                                                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" identifier="dateLabel" title="Label" placeholderString="date" id="KaI-3A-Y26">
                                                                                                                     <font key="font" size="11" name="Helvetica"/>
                                                                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -907,7 +907,7 @@
                                                                                                             </textField>
                                                                                                             <textField identifier="ticketNumberLabel" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Pf-sb-ov9">
                                                                                                                 <rect key="frame" x="147" y="43" width="351" height="17"/>
-                                                                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                                                                                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Label" id="Ea7-8m-Uzl">
                                                                                                                     <font key="font" size="13" name="Helvetica"/>
                                                                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1084,11 +1084,11 @@
                                                                 <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWR-lN-G65">
                                                                     <rect key="frame" x="-3" y="-3" width="1000" height="513"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                                    <clipView key="contentView" ambiguous="YES" drawsBackground="NO" id="goH-sO-15b">
+                                                                    <clipView key="contentView" ambiguous="YES" id="goH-sO-15b">
                                                                         <rect key="frame" x="0.0" y="0.0" width="1000" height="513"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
-                                                                            <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="sequential" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" autosaveExpandedItems="YES" autoresizesOutlineColumn="YES" outlineTableColumn="sZB-o0-rSn" id="Rch-vj-rGQ" customClass="MyOutlineView" customModule="Timeline" customModuleProvider="target">
+                                                                            <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="sequential" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="25" autosaveExpandedItems="YES" autoresizesOutlineColumn="YES" outlineTableColumn="sZB-o0-rSn" id="Rch-vj-rGQ" customClass="MyOutlineView" customModule="Timeline" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="1005" height="513"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -1205,7 +1205,7 @@
                                                                                 </tableColumns>
                                                                             </outlineView>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="backgroundColor" red="0.11748389154672623" green="0.12136540561914444" blue="0.13381612300872803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </clipView>
                                                                     <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="RHN-Ow-K3k">
                                                                         <rect key="frame" x="0.0" y="497" width="1000" height="16"/>
@@ -1220,7 +1220,7 @@
                                                         </view>
                                                     </tabViewItem>
                                                     <tabViewItem label="Notes" identifier="" id="Kes-jC-76A" userLabel="Notes">
-                                                        <view key="view" ambiguous="YES" id="p2y-YZ-ehz">
+                                                        <view key="view" id="p2y-YZ-ehz">
                                                             <rect key="frame" x="10" y="33" width="994" height="534"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
