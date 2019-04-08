@@ -3,8 +3,9 @@ var state;
 var nodesCache;
 var edgesCache;
 
+var timeline
 
-var displayedData = {};
+var displayedData = [];
 
 function webviewReady() {
     callNativeApp()
@@ -32,7 +33,7 @@ function init(data) {
     var options = {};
 
     // Create a Timeline
-    var timeline = new vis.Timeline(container, items, options);
+    timeline = new vis.Timeline(container, items, options);
     
     timeline.on('select', function(properties) {
         var selectedIds = timeline.getSelection();
@@ -44,135 +45,23 @@ function init(data) {
                                  }
                                  })[0];
         
-            webkit.messageHandlers.selectHandler.postMessage(selectedItem);
+            webkit.messageHandlers.selectHandler.postMessage(selectedItem.id);
         } else {
             webkit.messageHandlers.deselectHandler.postMessage("deselectHandler");
         }
     });
 
     
+}
+
+function selectTicket(id) {
+//    var selectedTicket = displayedData.filter(function(node) {
+//       return node.id == id
+//    })[0];
     
-//    try {
-//
-//        nodesCache = new vis.DataSet(graph.nodes);
-//        edgesCache = new vis.DataSet(graph.edges);
-//
-//        //var container = document.getElementById('mynetwork');
-//        var options = {
-//            nodes: {
-//                shape: 'dot',
-//                size: 1,
-//                scaling: {
-//                    min: 5,
-//                    label: {
-//                        enabled: true,
-//                        min: 2
-//                    },
-//                    customScalingFunction: function (min, max, total, value) {
-//                        if (value < min) {
-//                            return min
-//                        } else {
-//                            return value
-//                        }
-//                    }
-//                },
-//                font: {
-//                    face: 'Optima',
-//                    color: '#dae3f1',
-//                    size: 7
-//                }
-//            },
-//            edges: {
-//                arrows: 'to',
-//                color: {
-//                    inherit: 'from'
-//                }
-//            },
-//            groups: {
-//                "0": { color: '#4FFBDF', borderWidth:0, mass: 1 },
-//                "1": { color: '#845EC2', borderWidth:0, mass: 1.1 },
-//                "2": { color: '#D65DB1', borderWidth:0, mass: 1.3 },
-//                "3": { color: '#FF6F91', borderWidth:0, mass: 1.4 },
-//                "4": { color: '#FF9671', borderWidth:0, mass: 1.5 },
-//                "5": { color: '#FFC75F', borderWidth:0, mass: 1.6 },
-//                "6": { color: '#F9F871', borderWidth:0, mass: 1.7 },
-//                "7": { color: '#008F7A', borderWidth:0, mass: 1.8 },
-//                "8": { color: '#CB963D', borderWidth:0, mass: 1.9 },
-//                "9": { color: '#ccff33', borderWidth:0, mass: 1 }, // DONE
-//                "10": { color: '#444444', borderWidth:0, mass: 1 } // DONE
-//
-//            },
-//            physics: {
-//                forceAtlas2Based: {
-//                    gravitationalConstant: -20,
-//                    centralGravity: 0.003,
-//                    springLength: 180,
-//                    springConstant: 0.5
-//                },
-//                maxVelocity: 146,
-//                solver: 'forceAtlas2Based',
-//                timestep: 0.35,
-//                stabilization: {iterations: 150}
-//            },
-//            layout: {
-//                randomSeed: 0
-//            }
-//        };
-//
-//        var data = {
-//            nodes: nodesCache,
-//            edges: edgesCache,
-//            options: options
-//        };
-//
-//        network = new vis.Network(container, data, options);
-//
-//        network.on("selectNode", function (params) {
-//            var selectedNodeId = network.getSelection().nodes[0];
-//            var selectedNode = nodesCache.get(selectedNodeId);
-//
-//            if (UISTATE == "JOIN") {
-//                try {
-//                   webkit.messageHandlers.linkNodesHandler.postMessage({"to": network.getSelection().nodes[0], "from": toJoin });
-//                } catch(err) {
-//                    console.log('The native context does not exist yet');
-//                }
-//            } else if (UISTATE == "JOIN_PARENT") {
-//               try {
-//                   webkit.messageHandlers.linkNodeParentsHandler.postMessage({"to": network.getSelection().nodes[0], "from": toJoin });
-//               } catch(err) {
-//                   console.log('The native context does not exist yet');
-//               }
-//            } else {
-//                //webkit.messageHandlers.selectNodesHandler.postMessage(network.getSelection().nodes[0]);
-//            }
-//
-//        });
-//
-//        network.on("click", function (params) {
-//               try {
-//                   webkit.messageHandlers.clickHandler.postMessage({"node": network.getSelection().nodes[0]});
-//               } catch(err) {
-//                   console.log('The native context does not exist yet');
-//               }
-//        });
-//
-//        network.on("doubleClick", function (params) {
-//            try {
-//                webkit.messageHandlers.doubleClickHandler.postMessage({"node": network.getSelection().nodes[0]});
-//            } catch(err) {
-//                console.log('The native context does not exist yet');
-//            }
-//        });
-//
-//        network.on("deselectNode", function() {
-//            webkit.messageHandlers.deselectNodesHandler.postMessage(network.getSelection().nodes);
-//        });
-//    } catch (e) {
-//        return e
-//    }
-//
-//    return graph.edges
+    //timeline.focus(id)
+    timeline.setSelection(id)
+    webkit.messageHandlers.selectHandler.postMessage(id);
 }
 
 function updateGraph(graph) {

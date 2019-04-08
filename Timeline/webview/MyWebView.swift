@@ -27,6 +27,7 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
     var recentUpdatesView: RecentUpdatesTableView?
     var tabView: TabView?
     var todoTableView: TodoTableView?
+    var recentTicketUpdates: RecentUpdatesTableView?
     
     var tickets = [Ticket]()
     var recentlyUpdatedTickets = [Ticket]()
@@ -57,7 +58,8 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                            recentUpdatesView: RecentUpdatesTableView,
                            outlineView: MyOutlineView,
                            tabView: TabView,
-                           todoTableView: TodoTableView) {
+                           todoTableView: TodoTableView,
+                           recentTicketUpdates: RecentUpdatesTableView) {
         
         self.overView = overView
         self.selectView = selectView
@@ -92,6 +94,8 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
         
         self.outlineView = outlineView
         self.todoTableView = todoTableView
+        
+        self.recentTicketUpdates = recentTicketUpdates
     }
 
     func userContentController(_ userContentConvarller: WKUserContentController, didReceive message: WKScriptMessage) {
@@ -173,6 +177,8 @@ class MyWebView: WKWebView, WKScriptMessageHandler {
                 
                     self.outlineView?.initialize(comments: ticket.comments)
                     self.todoTableView?.initialize(todos: ticket.todos)
+                    
+                    self.recentTicketUpdates?.initialize(recentUpdates: ticket.updates ?? [])
                 }
             } catch let error {
                 print(error)
@@ -249,6 +255,7 @@ struct Ticket: Codable {
     var comments: [Comment]
     var todos: [Todo]
     var attachments: [String]
+    var updates: [Update]?
     var size: String?
     var start: String
     var end: String
@@ -268,6 +275,7 @@ struct Ticket: Codable {
         case comments = "comments"
         case todos = "todos"
         case attachments = "attachments"
+        case updates = "updates"
         case size = "size"
         case start = "start"
         case end = "end"
@@ -289,6 +297,7 @@ struct Ticket: Codable {
                 "comments": self.comments.description,
                 "todos": self.todos.description,
                 "attachments": self.attachments,
+                "updates": self.updates?.description ?? "",
                 "size": self.size as Any,
                 "start": self.start,
                 "end": self.end,

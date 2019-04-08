@@ -33,6 +33,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var recentUpdatesView: RecentUpdatesTableView!
     @IBOutlet weak var todoTableView: TodoTableView!
     
+    @IBOutlet weak var recentTicketUpdates: RecentUpdatesTableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,8 @@ class ViewController: NSViewController {
                            recentUpdatesView: self.recentUpdatesView,
                            outlineView: self.outlineView,
                            tabView: self.tabView,
-                           todoTableView: self.todoTableView)
+                           todoTableView: self.todoTableView,
+                           recentTicketUpdates: self.recentTicketUpdates)
     }
 
     override var representedObject: Any? {
