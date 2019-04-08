@@ -22,6 +22,7 @@
 		D7A16967225933C0001CFA99 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A16966225933C0001CFA99 /* TabView.swift */; };
 		D7A1696B225949BC001CFA99 /* TodoTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1696A225949BC001CFA99 /* TodoTableView.swift */; };
 		D7A1696D225A0079001CFA99 /* TodoTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1696C225A0079001CFA99 /* TodoTableCellView.swift */; };
+		D7A16971225B4BF5001CFA99 /* Activity.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7A16970225B4BF5001CFA99 /* Activity.xib */; };
 		D7C07357224AABD700350B69 /* MyOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C07356224AABD700350B69 /* MyOutlineView.swift */; };
 		D7C07392224D616600350B69 /* CommentTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C07391224D616500350B69 /* CommentTextField.swift */; };
 		D7C073952258AEE700350B69 /* RecentTicketsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C073942258AEE700350B69 /* RecentTicketsTableView.swift */; };
@@ -68,6 +69,7 @@
 		D7A16966225933C0001CFA99 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		D7A1696A225949BC001CFA99 /* TodoTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableView.swift; sourceTree = "<group>"; };
 		D7A1696C225A0079001CFA99 /* TodoTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableCellView.swift; sourceTree = "<group>"; };
+		D7A16970225B4BF5001CFA99 /* Activity.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Activity.xib; sourceTree = "<group>"; };
 		D7C07356224AABD700350B69 /* MyOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOutlineView.swift; sourceTree = "<group>"; };
 		D7C07391224D616500350B69 /* CommentTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTextField.swift; sourceTree = "<group>"; };
 		D7C073942258AEE700350B69 /* RecentTicketsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTicketsTableView.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				D71063CF2233165A005A38F1 /* ViewController.swift */,
 				D71063D42233165C005A38F1 /* Assets.xcassets */,
 				D71063D62233165C005A38F1 /* Main.storyboard */,
+				D7A16970225B4BF5001CFA99 /* Activity.xib */,
 				D71063D92233165C005A38F1 /* Info.plist */,
 				D71063DA2233165C005A38F1 /* Timeline.entitlements */,
 				D71063D12233165A005A38F1 /* Timeline.xcdatamodeld */,
@@ -338,6 +341,7 @@
 			files = (
 				D71063D52233165C005A38F1 /* Assets.xcassets in Resources */,
 				D71066E22233B5B1005A38F1 /* static in Resources */,
+				D7A16971225B4BF5001CFA99 /* Activity.xib in Resources */,
 				D71063D82233165C005A38F1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
